@@ -1,0 +1,28 @@
+show commands
+show exploits
+
+show commands
+show exploits
+load linux_x64_ovrflwmyechosrv
+show payloads
+help help
+load fafaef
+load faef
+load fafaef
+faefae faef
+load faefa
+
+load faefa
+load linux_x64_ovrflwmyechosrv
+help
+load linux_x64_ovrflwmyechosrv
+show payloads options
+show payloads
+help 
+help load
+load linux_x64_ovrflwmyechosrv
+clear
+load linux_x64_ovrflwmyechosrv
+set PAYLOAD reverse/linux_netcat
+load linux_x64_ovrflwmyechosrv
+set PAYLOAD reverse/linux_netcat

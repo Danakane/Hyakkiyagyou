@@ -2,17 +2,19 @@
 
 import typing
 import readline
+import pathlib
 from pytoolcore import style, command, engine
 from core import blueprintregister, exploitcore
 from shinsha import matoi, hata
 
 
 class Nuurihyon(engine.Engine):
-    MODREF = "nuurihyon"
-    MODNAME = "Nuurihyon"
-    AUTHOR = "Danakane"
-    HISTFILE = ".history/nuurihyon.hist"
-    HISTLEN = 1000
+    MODREF: str = "nuurihyon"
+    MODNAME: str = "Nuurihyon"
+    AUTHOR: str = "Danakane"
+    HISTFILE: str = ".history/nuurihyon.hist"
+    ROOTDIR: str = str(pathlib.Path(__file__).resolve().parent)
+    HISTLEN: int = 1000
 
     def __init__(self)->None:
         super(Nuurihyon, self).__init__(moduleref=Nuurihyon.MODREF,
@@ -23,11 +25,11 @@ class Nuurihyon(engine.Engine):
 
         # loading shells, exploits and payloads blueprints
         self.__shellreg__: blueprintregister.ShellRegister = \
-            blueprintregister.ShellRegister()
+            blueprintregister.ShellRegister(Nuurihyon.ROOTDIR + "/shells")
         self.__exploitreg__: blueprintregister.ExploitRegister = \
-            blueprintregister.ExploitRegister()
+            blueprintregister.ExploitRegister(Nuurihyon.ROOTDIR + "/exploits")
         self.__payloadreg__: blueprintregister.PayloadRegister = \
-            blueprintregister.PayloadRegister()
+            blueprintregister.PayloadRegister(Nuurihyon.ROOTDIR + "/payloads")
 
         # Defining module's commands
         # load cmd
@@ -97,7 +99,6 @@ class Nuurihyon(engine.Engine):
 
 blueprint: typing.Callable = Nuurihyon
 name: str = Nuurihyon.MODNAME
-
 
 if __name__ == '__main__':
     nuurihyon = Nuurihyon()

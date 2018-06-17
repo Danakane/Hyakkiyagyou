@@ -4,7 +4,6 @@
     <list default="true" id="267bb0da-ee7e-43f2-bd06-7ea4813cce72" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/blueprintregister.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/blueprintregister.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nuurihyon.py" beforeDir="false" afterPath="$PROJECT_DIR$/nuurihyon.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,23 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="matoi.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shinsha/matoi.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1575">
-              <caret line="105" column="57" selection-start-line="105" selection-start-column="57" selection-end-line="105" selection-end-column="57" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nuurihyon.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="nuurihyon.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nuurihyon.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="31" column="76" selection-start-line="31" selection-start-column="68" selection-end-line="31" selection-end-column="76" />
+            <state relative-caret-position="1320">
+              <caret line="103" column="20" lean-forward="true" selection-start-line="103" selection-end-line="104" />
               <folding>
                 <element signature="e#20#33#0" expanded="true" />
               </folding>
@@ -39,11 +26,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="blueprintregister.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="matoi.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shinsha/matoi.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2344">
+              <caret column="13" selection-start-column="13" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="blueprintregister.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/blueprintregister.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="21" lean-forward="true" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+            <state relative-caret-position="120">
+              <caret line="8" column="77" selection-start-line="8" selection-start-column="77" selection-end-line="8" selection-end-column="77" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -62,7 +58,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find />
+      <find>) -&gt;</find>
       <find>tupl</find>
       <find>g</find>
       <find>getshellclass</find>
@@ -70,7 +66,7 @@
       <find>style.</find>
       <find>whbanner</find>
       <find>stop</find>
-      <find />
+      <find>not found</find>
     </findStrings>
     <replaceStrings>
       <replace>)-&gt;</replace>
@@ -133,15 +129,15 @@
         <option value="$USER_HOME$/pytoolcore/pytoolcore/engine.py" />
         <option value="$PROJECT_DIR$/shinsha/matoi.py" />
         <option value="$PROJECT_DIR$/setup.sh" />
+        <option value="$PROJECT_DIR$/nuurihyon.py" />
+        <option value="$PROJECT_DIR$/nuurihyon.py" />
         <option value="$PROJECT_DIR$/core/blueprintregister.py" />
-        <option value="$PROJECT_DIR$/nuurihyon.py" />
-        <option value="$PROJECT_DIR$/nuurihyon.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="350" />
-    <option name="y" value="73" />
+    <option name="x" value="48" />
+    <option name="y" value="339" />
     <option name="width" value="1421" />
     <option name="height" value="675" />
   </component>
@@ -296,19 +292,19 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="380" y="209" width="1421" height="675" extended-state="0" />
+    <frame x="0" y="27" width="1600" height="768" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22237861" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1975" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.3292683" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3292683" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3292683" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39939025" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39939025" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -320,21 +316,21 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1375" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.330781" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Python Console" order="7" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -557,13 +553,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/test/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" selection-start-line="28" selection-end-line="30" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/test/test.py" />
     <entry file="file://$USER_HOME$/pytoolcore/pytoolcore/command.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1173">
@@ -575,9 +565,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -592,9 +579,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1567">
           <caret line="157" column="45" selection-start-line="157" selection-start-column="45" selection-end-line="157" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -602,9 +586,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -612,9 +593,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -622,19 +600,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
           <caret line="43" column="12" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shinsha/matoi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1575">
-          <caret line="105" column="57" selection-start-line="105" selection-start-column="57" selection-end-line="105" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -645,22 +610,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/blueprintregister.py">
+    <entry file="file://$PROJECT_DIR$/shinsha/matoi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="21" lean-forward="true" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-2344">
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nuurihyon.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="31" column="76" selection-start-line="31" selection-start-column="68" selection-end-line="31" selection-end-column="76" />
+        <state relative-caret-position="1320">
+          <caret line="103" column="20" lean-forward="true" selection-start-line="103" selection-end-line="104" />
           <folding>
             <element signature="e#20#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/blueprintregister.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="77" selection-start-line="8" selection-start-column="77" selection-end-line="8" selection-end-column="77" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -7,7 +7,6 @@ class BlueprintRegister:
 
     def __init__(self, path: str)->None:
         self.__blueprintspath__: pathlib.Path = pathlib.Path(path).absolute()
-        print(self.__blueprintspath__)
         self.__blueprintsdict__: typing.Dict[str, typing.Callable] = {}
         for file in self.__blueprintspath__.iterdir():
             if file.is_file() and not file.is_symlink():

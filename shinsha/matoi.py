@@ -95,7 +95,7 @@ class Matoi(engine.Engine):
 
         self.addcmd(cmd=cmdrun, fct=self.run, helpstr=runhelp)
 
-    def set(self, varname, value)->None:
+    def set(self, varname, value) -> None:
         varname = varname.upper()
         if "PORT" in varname:
             if int(value) not in range(1, 65536):
@@ -110,7 +110,7 @@ class Matoi(engine.Engine):
         else:
             self.setvar(varname=varname, value=value)
 
-    def show(self, keyword: str)->None:
+    def show(self, keyword: str) -> None:
         keyword = keyword.upper()
         if keyword == "PAYLOADS":
             payloadlist: typing.List[str] = self.__exploit__.comploads
@@ -123,7 +123,7 @@ class Matoi(engine.Engine):
             super(Matoi, self).show(keyword)
 
     def run(self, payload: str, lhost: str = "", lport: str = "",
-            rhost: str = "", rport: str = "")->None:
+            rhost: str = "", rport: str = "") -> None:
         rportstr: str = rport
         lportstr: str = lport
         if not payload:
@@ -174,16 +174,16 @@ class Matoi(engine.Engine):
         try:
             shell.run()
         except OSError as err:
-            raise(exception.CException(str(err)))
+            raise (exception.CException(str(err)))
 
-    def completer(self, text: str, state: int)->str:
+    def completer(self, text: str, state: int) -> str:
         subtext: str = text.split(" ")[-1].lower()
         if len(text.split(" ")) > 2 and text.split(" ")[-2].lower() == "payload":
             wordslist = self.__payloadreg__.list
             retlist: typing.List[str] = text.split(" ")[:-1]
             retlist.append([x for x in wordslist if x.lower().startswith(subtext, 0) and
-                        x.lower() not in text.lower().split(" ") and
-                        (subtext.strip() != "")][state])
+                            x.lower() not in text.lower().split(" ") and
+                            (subtext.strip() != "")][state])
             res: str = " ".join(retlist)
         else:
             res: str = super(Matoi, self).completer(text, state)

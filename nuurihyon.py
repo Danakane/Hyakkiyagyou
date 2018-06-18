@@ -3,6 +3,7 @@
 import typing
 import readline
 import pathlib
+import random
 from pytoolcore import style, command, engine
 from core import blueprintregister, exploitcore
 from shinsha import matoi, hata
@@ -94,7 +95,9 @@ class Nuurihyon(engine.Engine):
             pass
 
     def splash(self)->None:
-        print(hata.Hata.flag() + " by " + self.author, end="\n\n")
+        colors: typing.List[typing.Callable] = [style.Style.red, style.Style.yellow, style.Style.blue,
+                                                style.Style.cyan, style.Style.green]
+        print(hata.Hata.flag() + " by " + random.choice(colors)(self.author), end="\n\n")
 
 
 blueprint: typing.Callable = Nuurihyon

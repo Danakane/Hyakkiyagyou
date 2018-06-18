@@ -1,5 +1,4 @@
 import pathlib
-import os.path
 import typing
 import importlib.util
 
@@ -11,7 +10,7 @@ class BlueprintRegister:
         print(self.__blueprintspath__)
         self.__blueprintsdict__: typing.Dict[str, typing.Callable] = {}
         for file in self.__blueprintspath__.iterdir():
-            if os.path.isfile(file) and file.name != "__init__.py":
+            if file.is_file() and not file.is_symlink():
                 try:
                     spec: importlib.util.spec_from_file_location = importlib.util.spec_from_file_location(
                         file.name.split(".")[0], file)

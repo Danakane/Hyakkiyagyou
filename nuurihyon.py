@@ -76,16 +76,16 @@ class Nuurihyon(engine.Engine):
     def load(self, exploitref: str)->None:
         exploitref = exploitref.lower()
         exploit: exploitcore.Exploit = self.__exploitreg__[exploitref]()
-        matoi.Matoi(self.ref, self.name, exploit, self.__shellreg__, self.__payloadreg__).start()
+        matoi.Matoi(self.ref, self.name, exploit, self.__shellreg__, self.__payloadreg__).run()
 
-    def start(self):
+    def run(self):
         try:
             readline.read_history_file(".history/nuurihyon.hist")
             readline.set_history_length(Nuurihyon.HISTLEN)
             self.__histlen__ = readline.get_current_history_length()
         except FileNotFoundError:
             pass
-        super(Nuurihyon, self).start()
+        super(Nuurihyon, self).run()
 
     def stop(self)->None:
         try:
@@ -105,7 +105,7 @@ name: str = Nuurihyon.MODNAME
 if __name__ == '__main__':
     nuurihyon = Nuurihyon()
     nuurihyon.splash()
-    nuurihyon.start()
+    nuurihyon.run()
     print(style.Style.info("Otsukaresama desu~ ^(･｡･)ﾉ~~~"))
 
 

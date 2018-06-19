@@ -13,7 +13,7 @@ class Matoi(engine.Engine):
     def __init__(self, parentref: str, parentname: str, exploit: exploitcore.Exploit,
                  shellreg: blueprintregister.ShellRegister,
                  payloadreg: blueprintregister.PayloadRegister) -> None:
-        moduleref: str = parentref + "(" + exploit.getref() + ")"
+        moduleref: str = parentref + "(" + style.Style.bold(style.Style.red(exploit.getref())) + ")"
         super(Matoi, self).__init__(moduleref=moduleref,
                                     modulename=Matoi.MODNAME + "(" + exploit.ref + ")",
                                     author=Matoi.AUTHOR)
@@ -122,11 +122,12 @@ class Matoi(engine.Engine):
         else:
             super(Matoi, self).show(keyword)
 
-    def run(self, payload: str, lhost: str = "", lport: str = "",
+    def run(self, payload: str = "", lhost: str = "", lport: str = "",
             rhost: str = "", rport: str = "") -> None:
         rportstr: str = rport
         lportstr: str = lport
-        if not payload:
+        payloadref: str = payload
+        if not payloadref:
             print(style.Style.warning("No payload provided, " +
                                       self.__parentname__ + " will use PAYLOAD " +
                                       "as payload"))
@@ -161,7 +162,7 @@ class Matoi(engine.Engine):
         if lportstr:
             lport = int(lportstr)
 
-        payloadref: str = payload
+        payload: str = payloadref
         payload: payloadcore.Payload = self.__payloadreg__[payload]()
         payload.setup(lhost, lport)
         exploit: exploitcore.Exploit = self.__exploit__.generate(payload)

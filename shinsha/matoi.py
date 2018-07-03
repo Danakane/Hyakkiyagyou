@@ -13,10 +13,10 @@ class Matoi(engine.Engine):
     def __init__(self, parentref: str, parentname: str, exploit: exploitcore.Exploit,
                  shellreg: blueprintregister.ShellRegister,
                  payloadreg: blueprintregister.PayloadRegister) -> None:
-        moduleref: str = parentref + "(" + style.Style.bold(style.Style.red(exploit.getref())) + ")"
+        moduleref: str = parentref + "(" + style.Style.bold(style.Style.red(exploit.ref)) + ")"
         super(Matoi, self).__init__(moduleref=moduleref,
-                                    modulename=Matoi.MODNAME + "(" + exploit.ref + ")",
-                                    author=Matoi.AUTHOR)
+                                    modulename=exploit.ref,
+                                    author=exploit.author)
         self.__parentname__: str = parentname
         self.__exploit__: exploitcore.Exploit = exploit
         self.__shellreg__: blueprintregister.ShellRegister = shellreg
@@ -78,7 +78,7 @@ class Matoi(engine.Engine):
 
         cmdrun: command.Command = command.Command(cmdname="pwn", nargslist=pwnargs, nbpositionals=0)
 
-        runhelp: str = "Description : pwn " + exploit.getref() + \
+        runhelp: str = "Description : pwn " + exploit.ref + \
                        " exploit with the given parameters\n" + \
                        "Usage : pwn [option][value] \n" + \
                        "Options list : payload, lhost, lport, " + \

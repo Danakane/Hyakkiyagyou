@@ -1,8 +1,14 @@
 <component name="ProjectDictionaryState">
   <dictionary name="root">
     <words>
+      <w>addr</w>
+      <w>aslr</w>
+      <w>bruteforce</w>
+      <w>bruteforcing</w>
+      <w>chunked</w>
       <w>cidr</w>
       <w>danakane</w>
+      <w>deadbeefdeadbeeff</w>
       <w>desu</w>
       <w>getsockaddr</w>
       <w>lhost</w>
@@ -13,12 +19,16 @@
       <w>mkfifo</w>
       <w>netcat</w>
       <w>netutils</w>
+      <w>nginx</w>
       <w>nuurihyon</w>
       <w>otsukaresama</w>
       <w>ovrflwmyechosrv</w>
       <w>passwd</w>
       <w>payloadref</w>
       <w>pcmanftpserver</w>
+      <w>pwner</w>
+      <w>pwning</w>
+      <w>qword</w>
       <w>recv</w>
       <w>rhost</w>
       <w>rport</w>

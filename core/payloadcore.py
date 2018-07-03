@@ -43,13 +43,16 @@ class Payload:
     def binary(self)->bytes:
         return self.__payloadbin__
 
-    def getref(self)->str:
+    @property
+    def ref(self)->str:
         return self.__ref__
 
-    def getoptioninfo(self)->str:
+    @property
+    def optioninfo(self)->str:
         return self.__optioninfo__
 
-    def getshellname(self)->str:
+    @property
+    def shellname(self)->str:
         return self.__shellname__
 
     def setup(self, host=None, port=None)->None:
@@ -59,7 +62,3 @@ class Payload:
     @abstractmethod
     def parseparameters(self, host, port)->bytes:
         pass
-
-    ref = property(getref)
-    optioninfo = property(getoptioninfo)
-    shellname = property(getshellname)

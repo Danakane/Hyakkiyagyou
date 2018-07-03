@@ -29,7 +29,7 @@ class BashReverseShell(shellcore.SynchronousBashRemoteShell):
         skt, addr = lskt.accept()
         self.shellskt = skt
         lskt.close()
-        print(style.Style.success("Got shell! :)"))
+        print(style.Style.success("You have control! :)"))
 
 
 blueprint: typing.Callable = BashReverseShell

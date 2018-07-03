@@ -32,10 +32,9 @@ class BlueprintRegister:
     def removeblueprint(self, name)->None:
         del self.__blueprintsdict__[name]
 
-    def getlist(self)->typing.List[str]:
+    @property
+    def list(self)->typing.List[str]:
         return list(self.__blueprintsdict__.keys())
-
-    list = property(getlist)
 
 
 class ShellRegister(BlueprintRegister):

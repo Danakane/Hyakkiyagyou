@@ -25,11 +25,11 @@ class BasicReverseShell(shellcore.AsynchronousBasicRemoteShell):
 
         self.exploit.run(self.rsockaddr)
 
-        print(style.Style.info("Waiting for incoming connection"))
+        print(style.Style.info("Waiting for incoming connection..."))
         skt, addr = lskt.accept()
         self.shellskt = skt
         lskt.close()
-        print(style.Style.success("Got shell! :)"))
+        print(style.Style.success("You have control! :)"))
 
 
 blueprint: typing.Callable = BasicReverseShell

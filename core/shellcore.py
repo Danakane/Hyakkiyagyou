@@ -43,45 +43,45 @@ class RemoteShell:
     def run(self)->None:
         pass
 
-    def getprotocol(self) -> int:
+    @property
+    def protocol(self) -> int:
         return self.__protocol__
 
-    def getrsockaddr(self) -> typing.Tuple[typing.Any, ...]:
+    @property
+    def rsockaddr(self) -> typing.Tuple[typing.Any, ...]:
         return self.__rsockaddr__
 
-    def getlsockaddr(self) -> typing.Tuple[typing.Any, ...]:
+    @property
+    def lsockaddr(self) -> typing.Tuple[typing.Any, ...]:
         return self.__lsockaddr__
 
-    def getshellskt(self)->socket.socket:
+    @property
+    def shellskt(self)->socket.socket:
         return self.__shellskt__
 
-    def setshellskt(self, shellskt: socket.socket)->None:
+    @shellskt.setter
+    def shellskt(self, shellskt: socket.socket)->None:
         self.__shellskt__ = shellskt
 
-    def exploitref(self)-> exploitcore.Exploit:
+    @property
+    def exploit(self)-> exploitcore.Exploit:
         return self.__exploit__
 
-    def getrhost(self)->str:
+    @property
+    def rhost(self)->str:
         return self.__rhost__
 
-    def getlhost(self)->str:
+    @property
+    def lhost(self)->str:
         return self.__lhost__
 
-    def getrport(self)->int:
+    @property
+    def rport(self)->int:
         return self.__rport__
 
-    def getlport(self)->int:
+    @property
+    def lport(self)->int:
         return self.__lport__
-
-    protocol = property(getprotocol)
-    lsockaddr = property(getlsockaddr)
-    rsockaddr = property(getrsockaddr)
-    shellskt = property(getshellskt, setshellskt)
-    exploit = property(exploitref)
-    rhost = property(getrhost)
-    lhost = property(getlhost)
-    rport = property(getrport)
-    lport = property(getlport)
 
     @abstractmethod
     def configure(self) -> None:

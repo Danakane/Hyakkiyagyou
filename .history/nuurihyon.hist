@@ -19,3 +19,27 @@ help pwn
 load linux_x64_ovrflwmyechosrv
 help pwn
 pwn
+show exploit
+show exploits
+load linux_x64_nginx_chunked
+show payloads
+show author
+load linux_x64_nginx_chunked
+show author
+load linux_x64_ovrflwmyechosrv
+show author
+show name
+load linux_x64_nginx_chunked
+show author
+load linux_x64_nginx_chunked
+show author
+show name
+show author
+load linux_x64_nginx_chunked
+show author
+show name
+show options
+load linux_x64_ovrflwmyechosrv
+show author
+show name
+load linux_x64_nginx_chunked

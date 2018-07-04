@@ -83,7 +83,7 @@ class RemoteProcess:
     def connect(self) -> None:
         self.disconnect()
         protocol3: int = netutils.host2protocol(self.__rsockaddr__[0])
-        self.__skt__ = socket.socket = socket.socket(protocol3, socket.SOCK_STREAM)
+        self.__skt__: socket.socket = socket.socket(protocol3, socket.SOCK_STREAM)
         try:
             self.__skt__.connect(self.__rsockaddr__)
         except(socket.error, socket.herror, socket.gaierror, socket.timeout) as err:
@@ -95,7 +95,7 @@ class RemoteProcess:
             self.__skt__.close()
             self.__skt__ = None
 
-    def clear(self, timeout: float = 0.01, sleepelapse: float = 0.1):
+    def clear(self, timeout: float = 0.02, sleepelapse: float = 0.01):
         time.sleep(sleepelapse)
         self.__skt__.settimeout(timeout)
         try:
@@ -108,7 +108,7 @@ class RemoteProcess:
     def alive(self, sleepelapse: float = 0.01) -> bool:
         alive: bool = True
         self.__skt__.setblocking(False)
-        for i in range(100):
+        for i in range(50):
             try:
                 self.__skt__.recv(1)
                 alive = False

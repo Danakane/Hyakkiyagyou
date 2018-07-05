@@ -12,6 +12,7 @@
       <w>desu</w>
       <w>getsockaddr</w>
       <w>lhost</w>
+      <w>libcbase</w>
       <w>lockpick</w>
       <w>lport</w>
       <w>masuta</w>
@@ -20,6 +21,8 @@
       <w>netcat</w>
       <w>netutils</w>
       <w>nginx</w>
+      <w>nginxaddr</w>
+      <w>nginxbase</w>
       <w>nuurihyon</w>
       <w>otsukaresama</w>
       <w>ovrflwmyechosrv</w>

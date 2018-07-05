@@ -66,7 +66,7 @@ class ROP:
 
     def pack(self, addr, architecture: int=Architecture.x86_64):
         representation: str = "<Q"
-        if architecture == Architecture.x86_64:
+        if architecture == Architecture.x86:
             representation = "<I"
         self.__ropchain__ += struct.pack(representation, addr)
 
@@ -95,7 +95,7 @@ class RemoteProcess:
             self.__skt__.close()
             self.__skt__ = None
 
-    def clear(self, timeout: float = 0.02, sleepelapse: float = 0.01):
+    def clear(self, timeout: float = 0.01, sleepelapse: float = 0.01):
         time.sleep(sleepelapse)
         self.__skt__.settimeout(timeout)
         try:
@@ -108,7 +108,7 @@ class RemoteProcess:
     def alive(self, sleepelapse: float = 0.01) -> bool:
         alive: bool = True
         self.__skt__.setblocking(False)
-        for i in range(50):
+        for i in range(100):
             try:
                 self.__skt__.recv(1)
                 alive = False

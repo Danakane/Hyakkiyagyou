@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="267bb0da-ee7e-43f2-bd06-7ea4813cce72" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.history/nuurihyon.hist" beforeDir="false" afterPath="$PROJECT_DIR$/.history/nuurihyon.hist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exploits/nginx64chunked.py" beforeDir="false" afterPath="$PROJECT_DIR$/exploits/nginx64chunked.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shells/bashreverseshell.py" beforeDir="false" afterPath="$PROJECT_DIR$/shells/bashreverseshell.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shells/basicreverseshell.py" beforeDir="false" afterPath="$PROJECT_DIR$/shells/basicreverseshell.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,34 +46,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nginx64chunked.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="nginx64chunked.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/exploits/nginx64chunked.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="338" column="24" lean-forward="true" selection-start-line="338" selection-start-column="24" selection-end-line="338" selection-end-column="24" />
+            <state relative-caret-position="206">
+              <caret line="330" column="42" selection-start-line="330" selection-start-column="42" selection-end-line="330" selection-end-column="42" />
               <folding>
                 <element signature="e#105#118#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="basicreverseshell.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shells/basicreverseshell.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="31" column="8" lean-forward="true" selection-start-line="31" selection-start-column="8" selection-end-line="32" selection-end-column="63" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bashreverseshell.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/shells/bashreverseshell.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="32" column="63" selection-start-line="32" selection-start-column="63" selection-end-line="32" selection-end-column="63" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -174,9 +150,9 @@
         <option value="$PROJECT_DIR$/payloads/reverselinuxnetcat.py" />
         <option value="$PROJECT_DIR$/payloads/reverselinuxnetcat.py" />
         <option value="$PROJECT_DIR$/core/shellcore.py" />
-        <option value="$PROJECT_DIR$/exploits/nginx64chunked.py" />
         <option value="$PROJECT_DIR$/shells/basicreverseshell.py" />
         <option value="$PROJECT_DIR$/shells/bashreverseshell.py" />
+        <option value="$PROJECT_DIR$/exploits/nginx64chunked.py" />
       </list>
     </option>
   </component>
@@ -600,13 +576,6 @@
     <entry file="file://$USER_HOME$/pytoolcore/pytoolcore/exception.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/shells/basicbindshell.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/exploits/sploitwinxpx86pcmanftpserver.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
@@ -705,12 +674,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exploits/nginx64chunked.py">
+    <entry file="file://$PROJECT_DIR$/shells/basicbindshell.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="338" column="24" lean-forward="true" selection-start-line="338" selection-start-column="24" selection-end-line="338" selection-end-column="24" />
+        <state relative-caret-position="360">
+          <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shells/bashreverseshell.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="32" column="63" selection-start-line="32" selection-start-column="63" selection-end-line="32" selection-end-column="63" />
           <folding>
-            <element signature="e#105#118#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -722,12 +698,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shells/bashreverseshell.py">
+    <entry file="file://$PROJECT_DIR$/exploits/nginx64chunked.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="32" column="63" selection-start-line="32" selection-start-column="63" selection-end-line="32" selection-end-column="63" />
+        <state relative-caret-position="206">
+          <caret line="330" column="42" selection-start-line="330" selection-start-column="42" selection-end-line="330" selection-end-column="42" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#105#118#0" expanded="true" />
           </folding>
         </state>
       </provider>

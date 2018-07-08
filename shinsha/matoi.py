@@ -175,7 +175,7 @@ class Matoi(engine.Engine):
         try:
             shell.run()
         except OSError as err:
-            raise (exception.CException(str(err)))
+            raise (exception.ErrorException(str(err)))
 
     def completer(self, text: str, state: int) -> str:
         subtext: str = text.split(" ")[-1].lower()

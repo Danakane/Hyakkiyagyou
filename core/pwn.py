@@ -88,7 +88,7 @@ class RemoteProcess:
             self.__skt__.connect(self.__rsockaddr__)
         except(socket.error, socket.herror, socket.gaierror, socket.timeout) as err:
             self.disconnect()
-            raise (exception.CException(str(err)))
+            raise (exception.ErrorException(str(err)))
 
     def disconnect(self) -> None:
         if self.__skt__ is not None:

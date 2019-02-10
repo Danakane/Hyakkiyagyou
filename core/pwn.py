@@ -3,7 +3,7 @@ import struct
 import socket
 import time
 
-from os import errno
+import errno
 from pytoolcore import netutils
 from pytoolcore import exception
 

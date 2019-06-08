@@ -1,18 +1,22 @@
 import typing
 from pytoolcore import style, netutils, exception, command, engine
-from core import blueprintregister, exploitcore, payloadcore, shellcore
+from core import blueprintregister, exploitcore, payloadcore, shellcore, scriptercore
 
 
 class Matoi(engine.Engine):
     MODNAME: str = "Matoi"
     AUTHOR: str = "Danakane"
 
-    REVERSE: str = "reverse"
     BIND: str = "bind"
+    REVERSE: str = "reverse"
+    REUSE: str = "reuse"
+
+    DEFAULTSHELL: str = "BasicReuseShell"
 
     def __init__(self, parentref: str, parentname: str, exploit: exploitcore.Exploit,
                  shellreg: blueprintregister.ShellRegister,
-                 payloadreg: blueprintregister.PayloadRegister) -> None:
+                 payloadreg: blueprintregister.PayloadRegister,
+                 scripterreg: blueprintregister.ScripterRegister) -> None:
         moduleref: str = parentref + "(" + style.Style.bold(style.Style.red(exploit.ref)) + ")"
         super(Matoi, self).__init__(moduleref=moduleref,
                                     modulename=exploit.ref,
@@ -21,10 +25,15 @@ class Matoi(engine.Engine):
         self.__exploit__: exploitcore.Exploit = exploit
         self.__shellreg__: blueprintregister.ShellRegister = shellreg
         self.__payloadreg__: blueprintregister.PayloadRegister = payloadreg
+        self.__scripterreg__: blueprintregister.ScripterRegister = scripterreg
 
         # Defining the Matoi's variables
         self.addvar(varname="PAYLOAD",
                     description="The payload to use",
+                    settable=True, value="")
+
+        self.addvar(varname="SCRIPTER",
+                    description="The post-exploitation script to use",
                     settable=True, value="")
 
         self.addvar(varname="LHOST",
@@ -56,25 +65,28 @@ class Matoi(engine.Engine):
         # show command
         cmdshow: command.Command = command.Command(cmdname="show", nbpositionals=1,
                                                    completionlist=["commands", "name",
-                                                                   "author", "options", "payloads"])
+                                                                   "author", "options", "payloads",
+                                                                   "scripters"])
         showhelp: str = "Description : display option(s), command(s) and attack(s)\n" + \
                         "Usage : show {keyword} \n" + \
                         "Note :\n" + \
                         "\tuse 'show name' to display module's name\n" + \
                         "\tuse 'show author' to display module's author\n" + \
                         "\tuse 'show commands' to display the module's commands\n" + \
-                        "\tuse 'show payloads' to display the available payloads" + \
+                        "\tuse 'show payloads' to display the available payloads\n" + \
+                        "\tuse 'show scripters' to display the available post-exploitation scripts\n" + \
                         "\tuse 'show options' to display valid keywords\n"
         self.addcmd(cmd=cmdshow, fct=self.show, helpstr=showhelp)
 
         # pwn command
         argpayload: command.Argument = command.Argument(argname="payload", hasvalue=True, optional=True)
+        argscripter: command.Argument = command.Argument(argname="scripter", hasvalue=True, optional=True)
         arglhost: command.Argument = command.Argument(argname="lhost", hasvalue=True, optional=True)
         arglport: command.Argument = command.Argument(argname="lport", hasvalue=True, optional=True)
         argrhost: command.Argument = command.Argument(argname="rhost", hasvalue=True, optional=True)
         argrport: command.Argument = command.Argument(argname="rport", hasvalue=True, optional=True)
 
-        pwnargs = [argpayload, arglhost, arglport, argrhost, argrport]
+        pwnargs = [argpayload, argscripter, arglhost, arglport, argrhost, argrport]
 
         cmdrun: command.Command = command.Command(cmdname="pwn", nargslist=pwnargs, nbpositionals=0)
 
@@ -119,21 +131,32 @@ class Matoi(engine.Engine):
             for payloadref in payloadlist:
                 if payloadref in availableploads:
                     print(payloadref)
+        elif keyword == "SCRIPTERS":
+            scripterlist: typing.List[str] = self.__scripterreg__.list
+            print(style.Style.info(self.__parentname__ + "'s post-exploitation scripts"))
+            for scripterref in scripterlist:
+                print(scripterref)
         else:
             super(Matoi, self).show(keyword)
 
-    def pwn(self, payload: str = "", lhost: str = "", lport: str = "",
+    def pwn(self, payload: str = "", scripter: str = "", lhost: str = "", lport: str = "",
             rhost: str = "", rport: str = "") -> None:
         rportstr: str = rport
         lportstr: str = lport
         payloadref: str = payload
+        scripterref: str = scripter
         if not payloadref:
             print(style.Style.warning("No payload provided, " +
                                       self.__parentname__ + " will use PAYLOAD " +
                                       "as payload"))
             payloadref = self.getvar("PAYLOAD")
-            if not payloadref:
-                raise ValueError("PAYLOAD variable is empty")
+        if not scripterref:
+            print(style.Style.warning("No payload provided, " +
+                                      self.__parentname__ + " will use SCRIPTER " +
+                                      "as post-exploitation script."))
+            scripterref = self.getvar("SCRIPTER")
+            if not scripterref:
+                print(style.Style.warning("SCRIPTER variable is empty."))
         if not lhost:
             lhost = self.getvar("LHOST")
         if not lportstr:
@@ -163,15 +186,30 @@ class Matoi(engine.Engine):
             lport = int(lportstr)
 
         payload: str = payloadref
-        payload: payloadcore.Payload = self.__payloadreg__[payload]()
-        payload.setup(lhost, lport)
+        if payload is not None and payload != "":
+            payload: payloadcore.Payload = self.__payloadreg__[payload]()
+            payload.setup(lhost, lport)
+        else:
+            payload: payloadcore.Payload = None
         exploit: exploitcore.Exploit = self.__exploit__.generate(payload)
-        kwargs: typing.Dict[str, typing.Any] = {"exploit": exploit,
+        scripter: scriptercore.Scripter = None
+        try:
+            if scripterref != "":
+                scripter = self.__scripterreg__[scripterref]()
+        except KeyError:
+            print(style.Style.warning("Invalid post-exploitation script " + scripterref))
+        kwargs: typing.Dict[str, typing.Any] = {"exploit": exploit, "scripter": scripter,
                                                 "rhost": rhost, "rport": rport}
+
         if payloadref.split("/")[0] == Matoi.REVERSE:
             kwargs["lhost"] = lhost
             kwargs["lport"] = lport
-        shell: shellcore.RemoteShell = self.__shellreg__[payload.shellname](**kwargs)
+
+        if not exploit.comploads:
+            shell: shellcore.RemoteShell = self.__shellreg__[Matoi.DEFAULTSHELL](**kwargs)
+        else:
+            shell: shellcore.RemoteShell = self.__shellreg__[payload.shellname](**kwargs)
+
         try:
             shell.run()
         except OSError as err:

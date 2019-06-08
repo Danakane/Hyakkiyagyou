@@ -13,12 +13,12 @@ class Payload:
     __metaclass__ = ABCMeta
 
     def __init__(self, ref: str, payloadbin: bytes, optioninfo: str="",
-                 shellname: str=0)->None:
+                 shellname: str="")->None:
         self.__ref__: str = str(ref)
         self.__payloadbin__: bytes = b""
         self.__size__: int = 0
         self.__optioninfo__: str = ""
-        self.__shellname__: str = 0
+        self.__shellname__: str = ""
         self.set(payloadbin=payloadbin,
                  optioninfo=optioninfo,
                  shellname=shellname)

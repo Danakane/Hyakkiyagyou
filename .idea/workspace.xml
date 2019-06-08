@@ -3,9 +3,26 @@
   <component name="ChangeListManager">
     <list default="true" id="267bb0da-ee7e-43f2-bd06-7ea4813cce72" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.history/nuurihyon.hist" beforeDir="false" afterPath="$PROJECT_DIR$/.history/nuurihyon.hist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Hyakkiyagyou.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Hyakkiyagyou.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/root.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/root.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/blueprintregister.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/blueprintregister.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/exploitcore.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/exploitcore.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/payloadcore.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/payloadcore.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/pwn/rop.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/shellcore.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/shellcore.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exploits/.save/nginx140chunked.sav" beforeDir="false" afterPath="$PROJECT_DIR$/exploits/.save/nginx140chunked.sav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exploits/nginx64chunked.py" beforeDir="false" afterPath="$PROJECT_DIR$/exploits/nginx64chunked.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploits/sploitlinux64ovrflwmyechosrv.py" beforeDir="false" afterPath="$PROJECT_DIR$/exploits/ovrflwmyechosrv.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploits/sploitwinxpx86pcmanftpserver.py" beforeDir="false" afterPath="$PROJECT_DIR$/exploits/pcmanftpserver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuurihyon.py" beforeDir="false" afterPath="$PROJECT_DIR$/nuurihyon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shells/bashreverseshell.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shells/basicbindshell.py" beforeDir="false" afterPath="$PROJECT_DIR$/shells/basicbindshell.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shells/basicreverseshell.py" beforeDir="false" afterPath="$PROJECT_DIR$/shells/basicreverseshell.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shells/shellindex.py" beforeDir="false" afterPath="$PROJECT_DIR$/shells/shellindex.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shinsha/matoi.py" beforeDir="false" afterPath="$PROJECT_DIR$/shinsha/matoi.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,32 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="nuurihyon.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nuurihyon.py">
+      <file leaf-file-name="basicreuseshell.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shells/basicreuseshell.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="63" />
-              <folding>
-                <element signature="e#20#33#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="matoi.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shinsha/matoi.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="125" column="35" lean-forward="true" selection-start-line="125" selection-start-column="35" selection-end-line="125" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pwn.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/pwn.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="180">
+              <caret line="15" column="63" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -49,21 +45,52 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nginx64chunked.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/exploits/nginx64chunked.py">
+      <file leaf-file-name="linuxdisplaypwnedmsgbox.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripters/linuxdisplaypwnedmsgbox.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="337" column="41" selection-start-line="337" selection-start-column="41" selection-end-line="337" selection-end-column="41" />
-              <folding>
-                <element signature="e#1682#1695#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="120">
+              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nginx140chunked.sav" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/exploits/.save/nginx140chunked.sav">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file leaf-file-name="rop.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/pwncore/pwncore/rop.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="38" column="77" lean-forward="true" selection-start-line="38" selection-start-column="77" selection-end-line="38" selection-end-column="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pwnmeserver.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/exploits/pwnmeserver.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="381">
+              <caret line="227" column="71" selection-start-line="227" selection-start-column="71" selection-end-line="227" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pwnmeserver.sav" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/exploits/.save/pwnmeserver.sav">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret lean-forward="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="process.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/pwncore/pwncore/process.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1545">
+              <caret line="115" column="47" selection-start-line="115" selection-start-column="47" selection-end-line="115" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -77,9 +104,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find />
-      <find>tupl</find>
-      <find>g</find>
       <find>getshellclass</find>
       <find>splash</find>
       <find>style.</find>
@@ -101,6 +125,15 @@
       <find>except</find>
       <find>Exception</find>
       <find>ErrorEx</find>
+      <find>add(</find>
+      <find>pack(</find>
+      <find>super</find>
+      <find>chain</find>
+      <find>clear</find>
+      <find>alive</find>
+      <find>base</find>
+      <find>tryleak</find>
+      <find>ready</find>
     </findStrings>
     <replaceStrings>
       <replace>)-&gt;</replace>
@@ -118,19 +151,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$USER_HOME$/HyakkiYakou/shells/shellindex.py" />
-        <option value="$USER_HOME$/HyakkiYakou/payloads/payloadcore.py" />
-        <option value="$USER_HOME$/HyakkiYakou/shells/shellregister.py" />
-        <option value="$USER_HOME$/HyakkiYakou/shells/bashreverseshell.py" />
-        <option value="$USER_HOME$/HyakkiYakou/shinsha/shellcore.py" />
-        <option value="$USER_HOME$/hyakkiyakkou/shinsha/shellcore.py" />
-        <option value="$USER_HOME$/hyakkiyakkou/shinsha/shelloader.py" />
-        <option value="$USER_HOME$/hyakkiyakkou/test.py" />
-        <option value="$PROJECT_DIR$/shinsha/shellindex.py" />
-        <option value="$PROJECT_DIR$/shinsha/shelloader.py" />
-        <option value="$PROJECT_DIR$/shinsha/loader.py" />
-        <option value="$PROJECT_DIR$/shinsha/register.py" />
-        <option value="$PROJECT_DIR$/shinsha/exploitcore.py" />
         <option value="$PROJECT_DIR$/nurarihyon.py" />
         <option value="$PROJECT_DIR$/shinsha/shellcore.py" />
         <option value="$PROJECT_DIR$/shinsha/sploitwinxpx86pcmanftpserver.py" />
@@ -147,36 +167,49 @@
         <option value="$USER_HOME$/test/test.py" />
         <option value="$USER_HOME$/pytoolcore/pytoolcore/command.py" />
         <option value="$PROJECT_DIR$/setup.sh" />
-        <option value="$PROJECT_DIR$/nuurihyon.py" />
-        <option value="$PROJECT_DIR$/nuurihyon.py" />
         <option value="$PROJECT_DIR$/shinsha/ropapi.py" />
         <option value="$PROJECT_DIR$/core/rop.py" />
         <option value="$PROJECT_DIR$/core/process.py" />
-        <option value="$PROJECT_DIR$/core/payloadcore.py" />
-        <option value="$PROJECT_DIR$/core/blueprintregister.py" />
-        <option value="$PROJECT_DIR$/shells/basicbindshell.py" />
-        <option value="$PROJECT_DIR$/core/exploitcore.py" />
         <option value="$PROJECT_DIR$/exploits/sploitlinux64ovrflwmyechosrv.py" />
         <option value="$PROJECT_DIR$/exploits/sploitwinxpx86pcmanftpserver.py" />
-        <option value="$PROJECT_DIR$/core/pwn.py" />
-        <option value="$PROJECT_DIR$/payloads/reverselinuxnetcat.py" />
-        <option value="$PROJECT_DIR$/payloads/reverselinuxnetcat.py" />
-        <option value="$PROJECT_DIR$/core/shellcore.py" />
-        <option value="$PROJECT_DIR$/shells/basicreverseshell.py" />
-        <option value="$PROJECT_DIR$/shells/bashreverseshell.py" />
         <option value="$USER_HOME$/pytoolcore/pytoolcore/exception.py" />
         <option value="$USER_HOME$/pytoolcore/pytoolcore/engine.py" />
-        <option value="$PROJECT_DIR$/shinsha/matoi.py" />
+        <option value="$PROJECT_DIR$/core/pwn.py" />
+        <option value="$PROJECT_DIR$/core/pwn/remote.py" />
         <option value="$PROJECT_DIR$/exploits/.save/nginx140chunked.sav" />
+        <option value="$PROJECT_DIR$/core/pwn/rop.py" />
+        <option value="$PROJECT_DIR$/core/blueprintregister.py" />
+        <option value="$PROJECT_DIR$/scripters/displaypwnedmessagebox.py" />
+        <option value="$PROJECT_DIR$/scripters/linux_displaypwnedmsgbox.py" />
+        <option value="$PROJECT_DIR$/nuurihyon.py" />
+        <option value="$PROJECT_DIR$/nuurihyon.py" />
+        <option value="$PROJECT_DIR$/shells/bashreverseshell.py" />
+        <option value="$PROJECT_DIR$/shells/basicbindshell.py" />
+        <option value="$PROJECT_DIR$/exploits/ovrflwmyechosrv.py" />
+        <option value="$PROJECT_DIR$/core/payloadcore.py" />
+        <option value="$PROJECT_DIR$/payloads/reverselinuxnetcat.py" />
+        <option value="$PROJECT_DIR$/payloads/reverselinuxnetcat.py" />
+        <option value="$PROJECT_DIR$/shells/basicreverseshell.py" />
+        <option value="$PROJECT_DIR$/shells/shellindex.py" />
         <option value="$PROJECT_DIR$/exploits/nginx64chunked.py" />
+        <option value="$PROJECT_DIR$/core/shellcore.py" />
+        <option value="$PROJECT_DIR$/shells/basicreuseshell.py" />
+        <option value="$PROJECT_DIR$/core/exploitcore.py" />
+        <option value="$PROJECT_DIR$/core/scriptercore.py" />
+        <option value="$PROJECT_DIR$/scripters/linuxdisplaypwnedmsgbox.py" />
+        <option value="$PROJECT_DIR$/shinsha/matoi.py" />
+        <option value="$USER_HOME$/pwncore/pwncore/process.py" />
+        <option value="$USER_HOME$/pwncore/pwncore/rop.py" />
+        <option value="$PROJECT_DIR$/exploits/.save/pwnmeserver.sav" />
+        <option value="$PROJECT_DIR$/exploits/pwnmeserver.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="443" />
-    <option name="y" value="120" />
-    <option name="width" value="1413" />
-    <option name="height" value="675" />
+    <option name="x" value="227" />
+    <option name="y" value="32" />
+    <option name="width" value="1373" />
+    <option name="height" value="683" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -186,13 +219,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="Hyakkiyagyou" type="b2602c69:ProjectViewProjectNode" />
               <item name="Hyakkiyagyou" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hyakkiyagyou" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hyakkiyagyou" type="462c0819:PsiDirectoryNode" />
+              <item name=".history" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Hyakkiyagyou" type="b2602c69:ProjectViewProjectNode" />
@@ -213,7 +250,7 @@
             <path>
               <item name="Hyakkiyagyou" type="b2602c69:ProjectViewProjectNode" />
               <item name="Hyakkiyagyou" type="462c0819:PsiDirectoryNode" />
-              <item name="payloads" type="462c0819:PsiDirectoryNode" />
+              <item name="scripters" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Hyakkiyagyou" type="b2602c69:ProjectViewProjectNode" />
@@ -229,14 +266,16 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$USER_HOME$/pytoolcore/pytoolcore/exception.py" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="last_opened_file_path" value="$USER_HOME$/pwncore/pwncore/rop.py" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/core/pwn" />
       <recent name="$PROJECT_DIR$/shells" />
       <recent name="$PROJECT_DIR$/exploits" />
       <recent name="$USER_HOME$/HyakkiYakou" />
@@ -357,46 +396,47 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1600" height="768" extended-state="6" />
+    <frame x="227" y="32" width="1373" height="683" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1975" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16897306" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.3292683" />
-      <window_info anchor="bottom" x="0" y="579" width="1600" height="216" id="Find" order="1" type="FLOATING" weight="0.3292683" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3292683" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32740214" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32977098" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39723927" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.5038168" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Messages" order="7" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" x="0" y="579" width="1600" height="216" id="Find" order="1" type="FLOATING" weight="0.3292683" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1375" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22363766" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.330781" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32740214" />
+      <window_info anchor="bottom" x="0" y="579" width="1600" height="216" id="Find" order="1" type="FLOATING" weight="0.3292683" />
       <window_info anchor="bottom" id="Python Console" order="7" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39679715" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.3292683" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32977098" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -404,71 +444,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="34" />
+      <option name="time" value="40" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/HyakkiYakou/pytoolcore/netutils.py" />
-    <entry file="file://$USER_HOME$/HyakkiYakou/pytoolcore/style.py" />
-    <entry file="file://$USER_HOME$/HyakkiYakou/pytoolcore/utils.py" />
-    <entry file="file://$USER_HOME$/HyakkiYakou/shinsha/shellregister.py" />
-    <entry file="file:///usr/lib/python3.6/importlib/_bootstrap_external.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="523" column="4" selection-start-line="523" selection-start-column="4" selection-end-line="523" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python3.6/pathlib.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="998" selection-start-line="998" selection-end-line="998" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blank" />
-    <entry file="file:///usr/local/lib/python3.6/dist-packages/pytoolcore/command.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Git/WhichSploit/modules/exploits/sploitlinux64ovrflwmyechosrv.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="90" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Git/WhichSploit/modules/exploits/sploitwinxpx86pcmanftpserver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="56" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Git/WhichSploit/modules/payloads/reverselinuxnetcat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-end-line="24" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Git/WhichSploit/modules/payloads/reverselinuxx86bytescode.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Git/WhichSploit/modules/payloads/bindwinx86bytescode.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="37" column="46" lean-forward="true" selection-start-line="37" selection-start-column="46" selection-end-line="37" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Git/WhichSploit/modules/core/whengine.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="211">
@@ -532,43 +511,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/lib/python3.6/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="322" selection-start-line="322" selection-end-line="322" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python3.6/urllib/parse.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="775" selection-start-line="775" selection-end-line="775" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file:///usr/lib/python3.6/codecs.py" />
+    <entry file="file:///usr/lib/python3.6/urllib/parse.py" />
     <entry file="file://$PROJECT_DIR$/shinsha/ropapi.py" />
     <entry file="file://$PROJECT_DIR$/core/process.py" />
     <entry file="file://$PROJECT_DIR$/shinsha/hata.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="49" lean-forward="true" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/payloads/bindwinx86.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="46" column="37" lean-forward="true" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/payloads/reverselinuxx86.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="22" column="68" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="22" selection-end-column="68" />
         </state>
       </provider>
     </entry>
@@ -579,13 +529,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exploits/sploitwinxpx86pcmanftpserver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="36" column="43" lean-forward="true" selection-start-line="36" selection-start-column="43" selection-end-line="36" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/lib/python3.6/dist-packages/pytoolcore/engine.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
@@ -593,108 +536,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shells/shellindex.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="16" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/payloads/reverselinuxnetcat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="12" column="65" lean-forward="true" selection-start-line="12" selection-start-column="65" selection-end-line="12" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shells/basicbindshell.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shells/bashreverseshell.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="32" column="63" selection-start-line="32" selection-start-column="63" selection-end-line="32" selection-end-column="63" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shells/basicreverseshell.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="31" column="8" lean-forward="true" selection-start-line="31" selection-start-column="8" selection-end-line="32" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/shellcore.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/blueprintregister.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-720">
-          <caret column="14" lean-forward="true" selection-start-column="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/payloadcore.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exploits/sploitlinux64ovrflwmyechosrv.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-30">
-          <caret line="41" column="27" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
-          <folding>
-            <element signature="e#1682#1695#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/exploitcore.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-484">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/pytoolcore/pytoolcore/engine.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="83">
           <caret line="212" column="75" selection-start-line="212" selection-start-column="75" selection-end-line="212" selection-end-column="75" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nuurihyon.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="63" />
-          <folding>
-            <element signature="e#20#33#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -705,33 +550,198 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/pwn.py">
+    <entry file="file://$PROJECT_DIR$/core/__init__.py" />
+    <entry file="file:///usr/lib/python3.7/typing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="-1830">
+          <caret line="667" selection-start-line="667" selection-end-line="667" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/pwn/remote.py" />
+    <entry file="file://$PROJECT_DIR$/core/pwn/rop.py" />
+    <entry file="file://$PROJECT_DIR$/nuurihyon.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="117" column="19" lean-forward="true" selection-start-line="117" selection-start-column="19" selection-end-line="117" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.7/dist-packages/pytoolcore/netutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exploits/pcmanftpserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="62" selection-start-line="62" selection-end-line="63" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shells/bashreverseshell.py" />
+    <entry file="file://$PROJECT_DIR$/payloads/bindwinx86.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="37" column="45" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/payloads/reverselinuxx86.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="21" column="65" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/blueprintregister.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/payloads/reverselinuxnetcat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/-1247971762/_socket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="909" column="8" selection-start-line="909" selection-start-column="8" selection-end-line="909" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/payloadcore.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/pwncore/pwncore/pwnutils.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exploits/nginx64chunked.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="363" selection-start-line="363" selection-end-line="363" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exploits/ovrflwmyechosrv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="96" selection-start-line="96" selection-end-line="97" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shells/basicbindshell.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="12" column="85" lean-forward="true" selection-start-line="12" selection-start-column="85" selection-end-line="12" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shells/basicreverseshell.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shells/shellindex.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shells/basicreuseshell.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="15" column="63" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/shellcore.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1111">
+          <caret line="107" column="43" lean-forward="true" selection-start-line="107" selection-start-column="43" selection-end-line="107" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/scriptercore.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="17" column="42" lean-forward="true" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/shinsha/matoi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="125" column="35" lean-forward="true" selection-start-line="125" selection-start-column="35" selection-end-line="125" selection-end-column="35" />
+        <state relative-caret-position="154">
+          <caret line="211" lean-forward="true" selection-start-line="211" selection-end-line="211" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/exploitcore.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/exploits/.save/nginx140chunked.sav">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exploits/nginx64chunked.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="337" column="41" selection-start-line="337" selection-start-column="41" selection-end-line="337" selection-end-column="41" />
+        <state relative-caret-position="15">
+          <caret line="1" column="24" lean-forward="true" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/pwncore/pwncore/process.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1545">
+          <caret line="115" column="47" selection-start-line="115" selection-start-column="47" selection-end-line="115" selection-end-column="47" />
           <folding>
-            <element signature="e#1682#1695#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/pwncore/pwncore/rop.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="38" column="77" lean-forward="true" selection-start-line="38" selection-start-column="77" selection-end-line="38" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripters/linuxdisplaypwnedmsgbox.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exploits/.save/pwnmeserver.sav">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exploits/pwnmeserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="227" column="71" selection-start-line="227" selection-start-column="71" selection-end-line="227" selection-end-column="71" />
         </state>
       </provider>
     </entry>

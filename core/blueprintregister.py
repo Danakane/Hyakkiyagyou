@@ -73,6 +73,18 @@ class ExploitRegister(BlueprintRegister):
         self.removeblueprint(exploitref)
 
 
+class ScripterRegister(BlueprintRegister):
+
+    def __init__(self, relativepath: str="./scripters")->None:
+        super(ScripterRegister, self).__init__(relativepath)
+
+    def addexploitclass(self, scripterref: str, scripterclass: typing.Callable)->None:
+        self.addblueprint(scripterref, scripterclass)
+
+    def removeshell(self, scripterref: str)->None:
+        self.removeblueprint(scripterref)
+
+
 class ModuleRegister(BlueprintRegister):
     def __init__(self, relativepath: str=".")->None:
         super(ModuleRegister, self).__init__(relativepath)

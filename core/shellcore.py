@@ -1,21 +1,23 @@
 import socket
 import threading
 import typing
+import sys
 
 from abc import ABCMeta, abstractmethod
 
 from pytoolcore import style
 from pytoolcore import netutils
 from pytoolcore import utils
-from core import exploitcore
+from core import exploitcore, scriptercore
 
 
 class RemoteShell:
     __metaclass__ = ABCMeta
 
-    def __init__(self, exploit: exploitcore.Exploit, rhost: str, rport: int,
-                 lhost: str="", lport: int=0)->None:
+    def __init__(self, exploit: exploitcore.Exploit, scripter: scriptercore.Scripter,
+                 rhost: str, rport: int, lhost: str="", lport: int=0)->None:
         self.__exploit__: exploitcore.Exploit = exploit
+        self.__scripter__: scriptercore.Scripter = scripter
         self.__rhost__: str = str(rhost)
         self.__rport__: int = int(rport)
         self.__lhost__: str = str(lhost)
@@ -68,6 +70,10 @@ class RemoteShell:
         return self.__exploit__
 
     @property
+    def scripter(self)-> scriptercore.Scripter:
+        return self.__scripter__
+
+    @property
     def rhost(self)->str:
         return self.__rhost__
 
@@ -84,7 +90,7 @@ class RemoteShell:
         return self.__lport__
 
     @abstractmethod
-    def configure(self) -> None:
+    def initialize(self) -> None:
         pass
 
 
@@ -93,10 +99,11 @@ class AsynchronousBasicRemoteShell(RemoteShell):
 
     PDUMAXSIZE = 65535
 
-    def __init__(self, exploit: exploitcore.Exploit, rhost: str, rport: int,
-                 lhost: str="", lport: int=0)->None:
-        RemoteShell.__init__(self, exploit, rhost, rport, lhost, lport)
+    def __init__(self, exploit: exploitcore.Exploit, scripter: scriptercore.Scripter,
+                 rhost: str = "", rport: int = 0, lhost: str="", lport: int=0)->None:
+        RemoteShell.__init__(self, exploit, scripter, rhost, rport, lhost, lport)
         self.__recvthrd__: threading.Thread = threading.Thread()
+        self.__lastcmd__: str = ""
 
     def __send__(self, cmdline: str)->None:
         self.__shellskt__.send(utils.str2bytes(cmdline) + b"\n")
@@ -107,30 +114,35 @@ class AsynchronousBasicRemoteShell(RemoteShell):
     def __recvloop__(self)->None:
         while self.__running__:
             try:
-                print(self.__recv__(AsynchronousBasicRemoteShell.PDUMAXSIZE), end="")
+                res: str = self.__recv__(AsynchronousBasicRemoteShell.PDUMAXSIZE)
+                if res != self.__lastcmd__:
+                    print(res, end="")
+                    sys.stdout.flush()
             except socket.error:
                 pass
             except(UnicodeDecodeError, UnicodeEncodeError):
                 pass
 
     def run(self)->None:
-        self.configure()
+        self.initialize()
+        if self.scripter is not None:
+            self.scripter.postexploit(self.__shellskt__)
         self.__shellskt__.setblocking(False)
-
         self.__recvthrd__ = threading.Thread(target=self.__recvloop__)
         self.__running__ = True
         self.__recvthrd__.start()
         try:
+            self.__send__("")
             while True:
                 cmdline: str = input()
+                self.__lastcmd__ = cmdline + "\n"
                 self.__send__(cmdline)
                 if cmdline == "exit":
                     break
         except (KeyboardInterrupt, SystemExit):
-            self.__send__("exit")
+            self.__send__("exit\n")
             print()
         except(socket.error, socket.herror, socket.gaierror, socket.timeout) as err:
-            self.__send__("exit")
             print(style.Style.error(str(err)))
         finally:
             self.__running__ = False
@@ -138,55 +150,5 @@ class AsynchronousBasicRemoteShell(RemoteShell):
             self.__shellskt__.close()
 
     @abstractmethod
-    def configure(self) -> None:
-        pass
-
-
-class SynchronousBashRemoteShell(RemoteShell):
-    # Synchronous remote bash shell
-    __metaclass__ = ABCMeta
-
-    PDUMAXSIZE = 65535
-    SLEEPTIME = 0.5
-
-    def __init__(self, exploit: exploitcore.Exploit, rhost, rport, lhost="", lport=0)->None:
-        RemoteShell.__init__(self, exploit, rhost, rport, lhost, lport)
-
-    def __send__(self, cmdline: str)->None:
-        self.__shellskt__.send(utils.str2bytes(cmdline) + b"\n")
-
-    def __recv__(self, size: int):
-        return utils.bytes2str(self.__shellskt__.recv(size))
-
-    def run(self):
-        self.configure()
-        prompt: str = self.__recv__(SynchronousBashRemoteShell.PDUMAXSIZE)
-        # Some black magic here ;)
-        # In fact prompt = some bytes + @ + hostname + : + something that doesn't matter
-        hostname: str = prompt.split("@")[1].split(":")[0]
-        try:
-            while True:
-                cmdline: str = input(prompt)
-                self.__send__(cmdline)
-                if cmdline == "exit":
-                    break
-                res: str = self.__recv__(SynchronousBashRemoteShell.PDUMAXSIZE)
-                # while not prompt (prompt doesn't end with '\n')
-                while res[len(res) - 1] == "\n" or len(res.split("@")) == 1 or \
-                        res.split("@")[1].split(":")[0] != hostname:
-                    print(res, end="")
-                    # prompt return
-                    res = self.__recv__(SynchronousBashRemoteShell.PDUMAXSIZE)
-                prompt = res
-        except (KeyboardInterrupt, SystemExit):
-            self.__send__("exit")
-            print()
-        except(socket.error, socket.herror, socket.gaierror, socket.timeout) as err:
-            self.__send__("exit")
-            print(style.Style.error(str(err)))
-        finally:
-            self.__shellskt__.close()
-
-    @abstractmethod
-    def configure(self) -> None:
+    def initialize(self) -> None:
         pass

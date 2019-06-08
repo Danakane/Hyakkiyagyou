@@ -20,8 +20,8 @@
     </inspection_tool>
     <inspection_tool class="SpellCheckingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
       <option name="processCode" value="false" />
-      <option name="processLiterals" value="true" />
-      <option name="processComments" value="true" />
+      <option name="processLiterals" value="false" />
+      <option name="processComments" value="false" />
     </inspection_tool>
   </profile>
 </component>

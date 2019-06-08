@@ -146,35 +146,21 @@ class Matoi(engine.Engine):
         payloadref: str = payload
         scripterref: str = scripter
         if not payloadref:
-            print(style.Style.warning("No payload provided, " +
-                                      self.__parentname__ + " will use PAYLOAD " +
-                                      "as payload"))
             payloadref = self.getvar("PAYLOAD")
         if not scripterref:
-            print(style.Style.warning("No payload provided, " +
-                                      self.__parentname__ + " will use SCRIPTER " +
-                                      "as post-exploitation script."))
             scripterref = self.getvar("SCRIPTER")
-            if not scripterref:
-                print(style.Style.warning("SCRIPTER variable is empty."))
         if not lhost:
             lhost = self.getvar("LHOST")
         if not lportstr:
             lportstr = self.getvar("LPORT")
         if not rhost:
-            print(style.Style.warning("No remote host address provided, " +
-                                      self.__parentname__ + " will use RHOST " +
-                                      "as remote host"))
             rhost = self.getvar("RHOST")
             if not rhost:
-                raise ValueError("RHOST variable is empty")
+                raise ValueError("No remote host provided.")
         if not rportstr:
-            print(style.Style.warning("No remote port number provided, " +
-                                      self.__parentname__ + " will use RPORT " +
-                                      "as remote port number"))
             rportstr = self.getvar("RPORT")
             if not rportstr:
-                raise ValueError("RPORT variable is empty")
+                raise ValueError("No remote port provided")
 
         rhost = netutils.gethostaddrbyname(rhost)
         if lhost:

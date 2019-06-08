@@ -90,7 +90,7 @@ class Nuurihyon(engine.Engine):
 
     def run(self):
         try:
-            readline.read_history_file(".history/nuurihyon.hist")
+            readline.read_history_file(Nuurihyon.HISTFILE)
             readline.set_history_length(Nuurihyon.HISTLEN)
             self.__histlen__ = readline.get_current_history_length()
         except FileNotFoundError:

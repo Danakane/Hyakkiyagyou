@@ -210,6 +210,13 @@ class Matoi(engine.Engine):
                             x.lower() not in text.lower().split(" ") and
                             (subtext.strip() != "")][state])
             res: str = " ".join(retlist)
+        elif len(text.split(" ")) > 2 and text.split(" ")[-2].lower() == "scripter":
+                wordslist = self.__scripterreg__.list
+                retlist: typing.List[str] = text.split(" ")[:-1]
+                retlist.append([x for x in wordslist if x.lower().startswith(subtext, 0) and
+                                x.lower() not in text.lower().split(" ") and
+                                (subtext.strip() != "")][state])
+                res: str = " ".join(retlist)
         else:
             res: str = super(Matoi, self).completer(text, state)
         return res

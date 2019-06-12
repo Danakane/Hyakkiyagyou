@@ -3,20 +3,17 @@ import socket
 import typing
 from pytoolcore import style
 from pytoolcore import netutils
-from core import exploitcore, shellcore, scriptercore
+from core import shellcore
 
 
 class BasicBindShell(shellcore.AsynchronousBasicRemoteShell):
 
+    AUTHOR: str = "Danakane"
     SHELLREF: str = "BasicBindShell"
 
-    def __init__(self, exploit: exploitcore.Exploit, scripter: scriptercore.Scripter,
-                 rhost: str, rport: int)->None:
-        if rhost and rport:
-            shellcore.AsynchronousBasicRemoteShell.__init__(self, exploit=exploit, scripter=scripter,
-                                                            rhost=rhost, rport=rport)
-        else:
-            raise ValueError("Missing or incorrect parameters")
+    def __init__(self)->None:
+        shellcore.AsynchronousBasicRemoteShell.__init__(self)
+        self.customize(BasicBindShell.AUTHOR, BasicBindShell.SHELLREF)
 
     def initialize(self):
         self.exploit.run(self.rsockaddr)

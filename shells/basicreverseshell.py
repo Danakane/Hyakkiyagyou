@@ -2,21 +2,17 @@ import socket
 import typing
 
 from pytoolcore import style
-from core import exploitcore, shellcore, scriptercore
+from core import shellcore
 
 
 class BasicReverseShell(shellcore.AsynchronousBasicRemoteShell):
 
+    AUTHOR: str = "Danakane"
     SHELLREF: str = "BasicReverseShell"
 
-    def __init__(self, exploit: exploitcore.Exploit, scripter: scriptercore.Scripter,
-                 rhost, rport, lhost, lport)->None:
-        if rhost and rport and lhost and lport:
-            shellcore.AsynchronousBasicRemoteShell.__init__(self, exploit=exploit, scripter=scripter,
-                                                            rhost=rhost, rport=rport,
-                                                            lhost=lhost, lport=lport)
-        else:
-            raise ValueError("Missing or incorrect parameters")
+    def __init__(self)->None:
+        shellcore.AsynchronousBasicRemoteShell.__init__(self)
+        self.customize(BasicReverseShell.AUTHOR, BasicReverseShell.SHELLREF)
 
     def initialize(self)->None:
         lskt = socket.socket(self.protocol, socket.SOCK_STREAM)

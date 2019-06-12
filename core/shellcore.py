@@ -14,47 +14,39 @@ from core import exploitcore, scriptercore
 class RemoteShell:
     __metaclass__ = ABCMeta
 
-    def __init__(self, exploit: exploitcore.Exploit, scripter: scriptercore.Scripter,
-                 rhost: str, rport: int, lhost: str="", lport: int=0)->None:
-        self.__exploit__: exploitcore.Exploit = exploit
-        self.__scripter__: scriptercore.Scripter = scripter
-        self.__rhost__: str = str(rhost)
-        self.__rport__: int = int(rport)
-        self.__lhost__: str = str(lhost)
-        self.__lport__: int = int(lport)
+    def __init__(self)->None:
+        self.__ref__: str = ""
+        self.__author__: str = ""
+        self.__exploit__: exploitcore.Exploit = None
+        self.__scripter__: scriptercore.Scripter = None
+        self.__rhost__: str = ""
+        self.__rport__: int = 0
+        self.__lhost__: str = ""
+        self.__lport__: int = 0
         self.__rsockaddr__: typing.Tuple[typing.Any, ...] = ()
         self.__lsockaddr__: typing.Tuple[typing.Any, ...] = ()
         self.__shellskt__: socket.socket = socket.socket()
         self.__running__: bool = False
         self.__protocol__: int = 0
-        rsockinfo: typing.Tuple[int, int, int, str, typing.Tuple[typing.Any, ...]] \
-            = netutils.getsockinfo(rhost, rport)
-        self.__rsockaddr__ = rsockinfo[4]
-        if lhost:
-            lsockinfo = netutils.getsockinfo(lhost, lport)
-            self.__lsockaddr__ = lsockinfo[4]
-            self.__protocol__ = lsockinfo[0]
-        else:
-            self.__protocol__ = rsockinfo[0]
-        if not self.__protocol__ or \
-                (lhost and self.__protocol__ != netutils.host2protocol(rhost)):
-            raise ValueError("Missing or invalid RHOST/LHOST parameter(s)")
-        pass
-
-    @abstractmethod
-    def run(self)->None:
-        pass
 
     @property
-    def protocol(self) -> int:
+    def author(self)->str:
+        return self.__author__
+
+    @property
+    def ref(self)->str:
+        return self.__ref__
+
+    @property
+    def protocol(self)->int:
         return self.__protocol__
 
     @property
-    def rsockaddr(self) -> typing.Tuple[typing.Any, ...]:
+    def rsockaddr(self)->typing.Tuple[typing.Any, ...]:
         return self.__rsockaddr__
 
     @property
-    def lsockaddr(self) -> typing.Tuple[typing.Any, ...]:
+    def lsockaddr(self)->typing.Tuple[typing.Any, ...]:
         return self.__lsockaddr__
 
     @property
@@ -66,11 +58,11 @@ class RemoteShell:
         self.__shellskt__ = shellskt
 
     @property
-    def exploit(self)-> exploitcore.Exploit:
+    def exploit(self)->exploitcore.Exploit:
         return self.__exploit__
 
     @property
-    def scripter(self)-> scriptercore.Scripter:
+    def scripter(self)->scriptercore.Scripter:
         return self.__scripter__
 
     @property
@@ -89,8 +81,44 @@ class RemoteShell:
     def lport(self)->int:
         return self.__lport__
 
+    def customize(self, author: str, ref: str):
+        self.__author__ = author
+        self.__ref__ = ref
+
+    def configure(self, exploit: exploitcore.Exploit, scripter: scriptercore.Scripter,
+                  rhost: str, rport: int, lhost: str="", lport: int=0)->None:
+        self.__exploit__: exploitcore.Exploit = exploit
+        self.__scripter__: scriptercore.Scripter = scripter
+        self.__rhost__ = str(rhost)
+        self.__rport__ = int(rport)
+        self.__lhost__ = str(lhost)
+        self.__lport__ = int(lport)
+        self.__rsockaddr__ = ()
+        self.__lsockaddr__ = ()
+        self.__shellskt__ = socket.socket()
+        self.__running__ = False
+        self.__protocol__ = 0
+        rsockinfo: typing.Tuple[int, int, int, str, typing.Tuple[typing.Any, ...]] \
+            = netutils.getsockinfo(rhost, rport)
+        self.__rsockaddr__ = rsockinfo[4]
+        if lhost:
+            lsockinfo = netutils.getsockinfo(lhost, lport)
+            self.__lsockaddr__ = lsockinfo[4]
+            self.__protocol__ = lsockinfo[0]
+        else:
+            self.__protocol__ = rsockinfo[0]
+        if not self.__protocol__ or \
+                (lhost and self.__protocol__ != netutils.host2protocol(rhost)):
+            raise ValueError("Missing or invalid RHOST/LHOST parameter(s)")
+        pass
+
     @abstractmethod
     def initialize(self) -> None:
+        pass
+
+    @abstractmethod
+    def run(self, exploit: exploitcore.Exploit, scripter: scriptercore.Scripter,
+            rhost: str, rport: int, lhost: str="", lport: int=0) -> None:
         pass
 
 
@@ -99,9 +127,8 @@ class AsynchronousBasicRemoteShell(RemoteShell):
 
     PDUMAXSIZE = 65535
 
-    def __init__(self, exploit: exploitcore.Exploit, scripter: scriptercore.Scripter,
-                 rhost: str = "", rport: int = 0, lhost: str="", lport: int=0)->None:
-        RemoteShell.__init__(self, exploit, scripter, rhost, rport, lhost, lport)
+    def __init__(self)->None:
+        RemoteShell.__init__(self)
         self.__recvthrd__: threading.Thread = threading.Thread()
         self.__lastcmd__: str = ""
 
@@ -123,7 +150,9 @@ class AsynchronousBasicRemoteShell(RemoteShell):
             except(UnicodeDecodeError, UnicodeEncodeError):
                 pass
 
-    def run(self)->None:
+    def run(self, exploit: exploitcore.Exploit, scripter: scriptercore.Scripter,
+            rhost: str, rport: int, lhost: str = "", lport: int = 0) -> None:
+        self.configure(exploit, scripter, rhost, rport, lhost, lport)
         self.initialize()
         if self.scripter is not None:
             self.scripter.postexploit(self.__shellskt__)

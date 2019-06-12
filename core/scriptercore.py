@@ -12,9 +12,9 @@ class Scripter:
     PDUMAXSIZE: int = 65535
     TIMEOUT: float = 1
 
-    def __init__(self, ref: str, author: str) -> None:
-        self.__ref__: str = ref
-        self.__author__: str = author
+    def __init__(self) -> None:
+        self.__ref__: str = ""
+        self.__author__: str = ""
         self.__skt__: socket.socket = None
 
     def __send__(self, cmdline: str)->None:
@@ -39,6 +39,10 @@ class Scripter:
     def send(self, cmdline: str, timeout: float=TIMEOUT) -> str:
         self.__send__(cmdline)
         return self.recv(timeout)
+
+    def customize(self, author: str, ref: str):
+        self.__ref__ = ref
+        self.__author__ = author
 
     def postexploit(self, skt: socket.socket) -> None:
         self.__skt__ = skt

@@ -91,12 +91,9 @@ class Matoi(engine.Engine):
         arglport: command.Argument = command.Argument(argname="lport", hasvalue=True, optional=True)
         argrhost: command.Argument = command.Argument(argname="rhost", hasvalue=True, optional=True)
         argrport: command.Argument = command.Argument(argname="rport", hasvalue=True, optional=True)
-
         pwnargs = [argpayload, argscripter, argtarget, arglhost, arglport, argrhost, argrport]
-
-        cmdrun: command.Command = command.Command(cmdname="pwn", nargslist=pwnargs, nbpositionals=0)
-
-        runhelp: str = "Description : pwn " + exploit.ref + \
+        cmdpwn: command.Command = command.Command(cmdname="pwn", nargslist=pwnargs, nbpositionals=0)
+        pwnhelp: str = "Description : pwn " + exploit.ref + \
                        " exploit with the given parameters\n" + \
                        "Usage : pwn [option][value] \n" + \
                        "Options list : payload, lhost, lport, " + \
@@ -110,8 +107,7 @@ class Matoi(engine.Engine):
                        "Example : pwn payload reverse/linux_netcat " + \
                        "rhost 192.168.1.92 rport 1025 " + \
                        "lhost 192.168.1.84 lport 5555"
-
-        self.addcmd(cmd=cmdrun, fct=self.pwn, helpstr=runhelp)
+        self.addcmd(cmd=cmdpwn, fct=self.pwn, helpstr=pwnhelp)
 
     def set(self, varname, value) -> None:
         varname = varname.upper()
@@ -214,13 +210,13 @@ class Matoi(engine.Engine):
             kwargs["lhost"] = lhost
             kwargs["lport"] = lport
 
-        if not exploit.comploads:
-            shell: shellcore.RemoteShell = self.__shellreg__[Matoi.DEFAULTSHELL](**kwargs)
-        else:
-            shell: shellcore.RemoteShell = self.__shellreg__[payload.shellname](**kwargs)
+        shellref: str = Matoi.DEFAULTSHELL
+        if exploit.comploads:
+            shellref = payload.shellname
+        shell: shellcore.RemoteShell = self.__shellreg__[shellref]()
 
         try:
-            shell.run()
+            shell.run(**kwargs)
         except OSError as err:
             raise (exception.ErrorException(str(err)))
 

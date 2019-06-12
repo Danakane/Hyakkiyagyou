@@ -12,16 +12,13 @@ class Payload:
 
     __metaclass__ = ABCMeta
 
-    def __init__(self, ref: str, payloadbin: bytes, optioninfo: str="",
-                 shellname: str="")->None:
-        self.__ref__: str = str(ref)
+    def __init__(self)->None:
+        self.__ref__: str = ""
+        self.__author__: str = ""
         self.__payloadbin__: bytes = b""
         self.__size__: int = 0
         self.__optioninfo__: str = ""
         self.__shellname__: str = ""
-        self.set(payloadbin=payloadbin,
-                 optioninfo=optioninfo,
-                 shellname=shellname)
 
     def set(self, payloadbin: bytes, optioninfo: str="",
             shellname: str="")->None:
@@ -48,6 +45,10 @@ class Payload:
         return self.__ref__
 
     @property
+    def author(self)->str:
+        return self.__author__
+
+    @property
     def optioninfo(self)->str:
         return self.__optioninfo__
 
@@ -58,6 +59,15 @@ class Payload:
     def setup(self, host=None, port=None)->None:
         payloadbin = self.parseparameters(host, port)
         self.set(payloadbin)
+
+    def customize(self, author:str, ref: str, payloadbin: bytes, optioninfo: str="", shellname: str=""):
+        self.__ref__ = ref
+        self.__author__ = author
+        self.__payloadbin__ = b""
+        self.__size__ = 0
+        self.__optioninfo__ = ""
+        self.__shellname__ = ""
+        self.set(payloadbin=payloadbin, optioninfo=optioninfo, shellname=shellname)
 
     @abstractmethod
     def parseparameters(self, host, port)->bytes:

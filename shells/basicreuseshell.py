@@ -1,19 +1,17 @@
 import typing
 
 from pytoolcore import style
-from core import exploitcore, shellcore, scriptercore
+from core import shellcore
 
 
 class BasicReuseShell(shellcore.AsynchronousBasicRemoteShell):
 
+    AUTHOR: str = "Danakane"
     SHELLREF: str = "BasicReuseShell"
 
-    def __init__(self, exploit: exploitcore.Exploit, scripter: scriptercore.Scripter, rhost, rport)->None:
-        if rhost and rport:
-            shellcore.AsynchronousBasicRemoteShell.__init__(self, exploit=exploit, scripter=scripter,
-                                                            rhost=rhost, rport=rport)
-        else:
-            raise ValueError("Missing or incorrect parameters")
+    def __init__(self)->None:
+        shellcore.AsynchronousBasicRemoteShell.__init__(self)
+        self.customize(BasicReuseShell.AUTHOR, BasicReuseShell.SHELLREF)
 
     def initialize(self)->None:
         self.shellskt = self.exploit.run(self.rsockaddr)

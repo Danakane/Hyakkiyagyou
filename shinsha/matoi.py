@@ -36,6 +36,10 @@ class Matoi(engine.Engine):
                     description="The post-exploitation script to use",
                     settable=True, value="")
 
+        self.addvar(varname="TARGET",
+                    description="The target of the exploit",
+                    settable=True, value="")
+
         self.addvar(varname="LHOST",
                     description="The local host name or address",
                     settable=True, value="")
@@ -75,18 +79,20 @@ class Matoi(engine.Engine):
                         "\tuse 'show commands' to display the module's commands\n" + \
                         "\tuse 'show payloads' to display the available payloads\n" + \
                         "\tuse 'show scripters' to display the available post-exploitation scripts\n" + \
+                        "\tuse 'show targets' to display the possible targets of the exploit\n" + \
                         "\tuse 'show options' to display valid keywords\n"
         self.addcmd(cmd=cmdshow, fct=self.show, helpstr=showhelp)
 
         # pwn command
         argpayload: command.Argument = command.Argument(argname="payload", hasvalue=True, optional=True)
         argscripter: command.Argument = command.Argument(argname="scripter", hasvalue=True, optional=True)
+        argtarget: command.Argument = command.Argument(argname="target", hasvalue=True, optional=True)
         arglhost: command.Argument = command.Argument(argname="lhost", hasvalue=True, optional=True)
         arglport: command.Argument = command.Argument(argname="lport", hasvalue=True, optional=True)
         argrhost: command.Argument = command.Argument(argname="rhost", hasvalue=True, optional=True)
         argrport: command.Argument = command.Argument(argname="rport", hasvalue=True, optional=True)
 
-        pwnargs = [argpayload, argscripter, arglhost, arglport, argrhost, argrport]
+        pwnargs = [argpayload, argscripter, argtarget, arglhost, arglport, argrhost, argrport]
 
         cmdrun: command.Command = command.Command(cmdname="pwn", nargslist=pwnargs, nbpositionals=0)
 
@@ -119,6 +125,16 @@ class Matoi(engine.Engine):
             else:
                 raise ValueError(value + " is not a compatible payload for " +
                                  self.__exploit__.ref)
+        elif "PAYLOAD" == varname:
+            if value in self.__scripterreg__.list:
+                self.setvar(varname=varname, value=value)
+            else:
+                raise ValueError(value + " is not a script")
+        elif "TARGET" == varname:
+            if value in self.__exploit__.targets:
+                self.setvar(varname=varname, value=value)
+            else:
+                raise ValueError(value + " is not a valid target for " + self.__exploit__.ref)
         else:
             self.setvar(varname=varname, value=value)
 
@@ -136,11 +152,16 @@ class Matoi(engine.Engine):
             print(style.Style.info(self.__parentname__ + "'s post-exploitation scripts"))
             for scripterref in scripterlist:
                 print(scripterref)
+        elif keyword == "TARGETS":
+            targetslist: typing.List[str] = self.__exploit__.targets
+            print(style.Style.info(self.__exploit__.ref + "'s targets"))
+            for targetref in targetslist:
+                print(targetref)
         else:
             super(Matoi, self).show(keyword)
 
-    def pwn(self, payload: str = "", scripter: str = "", lhost: str = "", lport: str = "",
-            rhost: str = "", rport: str = "") -> None:
+    def pwn(self, payload: str = "", scripter: str = "", target: str = "",
+            lhost: str = "", lport: str = "", rhost: str = "", rport: str = "") -> None:
         rportstr: str = rport
         lportstr: str = lport
         payloadref: str = payload
@@ -149,6 +170,8 @@ class Matoi(engine.Engine):
             payloadref = self.getvar("PAYLOAD")
         if not scripterref:
             scripterref = self.getvar("SCRIPTER")
+        if not target:
+            target = self.getvar("TARGET")
         if not lhost:
             lhost = self.getvar("LHOST")
         if not lportstr:
@@ -177,7 +200,7 @@ class Matoi(engine.Engine):
             payload.setup(lhost, lport)
         else:
             payload: payloadcore.Payload = None
-        exploit: exploitcore.Exploit = self.__exploit__.generate(payload)
+        exploit: exploitcore.Exploit = self.__exploit__.generate(payload, target)
         scripter: scriptercore.Scripter = None
         try:
             if scripterref != "":
@@ -204,19 +227,26 @@ class Matoi(engine.Engine):
     def completer(self, text: str, state: int) -> str:
         subtext: str = text.split(" ")[-1].lower()
         if len(text.split(" ")) > 2 and text.split(" ")[-2].lower() == "payload":
-            wordslist = self.__payloadreg__.list
+            wordslist: typing.List[str] = self.__payloadreg__.list
             retlist: typing.List[str] = text.split(" ")[:-1]
             retlist.append([x for x in wordslist if x.lower().startswith(subtext, 0) and
                             x.lower() not in text.lower().split(" ") and
                             (subtext.strip() != "")][state])
             res: str = " ".join(retlist)
         elif len(text.split(" ")) > 2 and text.split(" ")[-2].lower() == "scripter":
-                wordslist = self.__scripterreg__.list
-                retlist: typing.List[str] = text.split(" ")[:-1]
-                retlist.append([x for x in wordslist if x.lower().startswith(subtext, 0) and
-                                x.lower() not in text.lower().split(" ") and
-                                (subtext.strip() != "")][state])
-                res: str = " ".join(retlist)
+            wordslist: typing.List[str] = self.__scripterreg__.list
+            retlist: typing.List[str] = text.split(" ")[:-1]
+            retlist.append([x for x in wordslist if x.lower().startswith(subtext, 0) and
+                            x.lower() not in text.lower().split(" ") and
+                            (subtext.strip() != "")][state])
+            res: str = " ".join(retlist)
+        elif len(text.split(" ")) > 2 and text.split(" ")[-2].lower() == "target":
+            wordslist: typing.List[str] = self.__exploit__.targets
+            retlist: typing.List[str] = text.split(" ")[:-1]
+            retlist.append([x for x in wordslist if x.lower().startswith(subtext, 0) and
+                            x.lower() not in text.lower().split(" ") and
+                            (subtext.strip() != "")][state])
+            res: str = " ".join(retlist)
         else:
             res: str = super(Matoi, self).completer(text, state)
         return res

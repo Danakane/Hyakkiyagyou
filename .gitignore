@@ -1,3 +1,5 @@
 .history/nuurihyon.hist
 exploits/.save/nginx140chunked.sav
 exploits/.save/pwnmeserver.sav
+*.pyc
+__pycache__/

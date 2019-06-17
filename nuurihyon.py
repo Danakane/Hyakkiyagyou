@@ -17,7 +17,7 @@ class Nuurihyon(engine.Engine):
     HISTFILE: str = ROOTDIR + "/.history/nuurihyon.hist"
     HISTLEN: int = 1000
 
-    def __init__(self)->None:
+    def __init__(self) -> None:
         super(Nuurihyon, self).__init__(moduleref=Nuurihyon.MODREF,
                                         modulename=Nuurihyon.MODNAME,
                                         author=Nuurihyon.AUTHOR)
@@ -62,7 +62,7 @@ class Nuurihyon(engine.Engine):
                         "\tuse 'show options' to display valid keywords\n"
         self.addcmd(cmd=cmdshow, fct=self.show, helpstr=showhelp)
 
-    def show(self, keyword: str)->None:
+    def show(self, keyword: str) -> None:
         keyword = keyword.upper()
         if keyword == "EXPLOITS":
             exploitlist: typing.List[str] = self.__exploitreg__.list
@@ -82,13 +82,13 @@ class Nuurihyon(engine.Engine):
         else:
             super(Nuurihyon, self).show(keyword)
 
-    def load(self, exploitref: str)->None:
+    def load(self, exploitref: str) -> None:
         exploitref = exploitref.lower()
         exploit: exploitcore.Exploit = self.__exploitreg__[exploitref]()
-        matoi.Matoi(self.ref, self.name, exploit, self.__shellreg__,
+        matoi.Matoi(self.ref, self.name, exploitref, exploit, self.__shellreg__,
                     self.__payloadreg__, self.__scripterreg__).run()
 
-    def run(self):
+    def run(self) -> None:
         try:
             readline.read_history_file(Nuurihyon.HISTFILE)
             readline.set_history_length(Nuurihyon.HISTLEN)
@@ -97,13 +97,13 @@ class Nuurihyon(engine.Engine):
             pass
         super(Nuurihyon, self).run()
 
-    def stop(self)->None:
+    def stop(self) -> None:
         try:
             readline.write_history_file(Nuurihyon.HISTFILE)
         except FileNotFoundError:
             pass
 
-    def splash(self)->None:
+    def splash(self) -> None:
         colors: typing.List[typing.Callable] = [style.Style.red, style.Style.yellow, style.Style.darkcyan,
                                                 style.Style.cyan, style.Style.green]
         print(hata.Hata.flag() + " by " + style.Style.bold(random.choice(colors)(self.author)), end="\n\n")

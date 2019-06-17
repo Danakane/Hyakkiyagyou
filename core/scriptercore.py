@@ -1,4 +1,5 @@
 import socket
+import typing
 
 from abc import ABCMeta, abstractmethod
 
@@ -13,11 +14,9 @@ class Scripter:
     TIMEOUT: float = 1
 
     def __init__(self) -> None:
-        self.__ref__: str = ""
-        self.__author__: str = ""
-        self.__skt__: socket.socket = None
+        self.__skt__: typing.Optional[socket.socket] = None
 
-    def __send__(self, cmdline: str)->None:
+    def __send__(self, cmdline: str) -> None:
         self.__skt__.send(utils.str2bytes(cmdline) + b"\n")
 
     def __recv__(self, size: int) -> str:
@@ -36,13 +35,9 @@ class Scripter:
             self.__skt__.settimeout(None)
         return res
 
-    def send(self, cmdline: str, timeout: float=TIMEOUT) -> str:
+    def send(self, cmdline: str, timeout: float = TIMEOUT) -> str:
         self.__send__(cmdline)
         return self.recv(timeout)
-
-    def customize(self, author: str, ref: str):
-        self.__ref__ = ref
-        self.__author__ = author
 
     def postexploit(self, skt: socket.socket) -> None:
         self.__skt__ = skt
@@ -50,5 +45,5 @@ class Scripter:
         pass
 
     @abstractmethod
-    def execute(self)-> None:
+    def execute(self) -> None:
         pass

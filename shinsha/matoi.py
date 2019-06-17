@@ -1,26 +1,23 @@
 import typing
 from pytoolcore import style, netutils, exception, command, engine
 from core import blueprintregister, exploitcore, payloadcore, shellcore, scriptercore
+from shells import shellsindex
 
 
 class Matoi(engine.Engine):
     MODNAME: str = "Matoi"
     AUTHOR: str = "Danakane"
 
-    BIND: str = "bind"
-    REVERSE: str = "reverse"
-    REUSE: str = "reuse"
+    DEFAULTSHELL: str = shellsindex.ShellsIndex.basicreuse
 
-    DEFAULTSHELL: str = "BasicReuseShell"
-
-    def __init__(self, parentref: str, parentname: str, exploit: exploitcore.Exploit,
+    def __init__(self, parentref: str, parentname: str, exploitref: str, exploit: exploitcore.Exploit,
                  shellreg: blueprintregister.ShellRegister,
                  payloadreg: blueprintregister.PayloadRegister,
                  scripterreg: blueprintregister.ScripterRegister) -> None:
-        moduleref: str = parentref + "(" + style.Style.bold(style.Style.red(exploit.ref)) + ")"
+        moduleref: str = parentref + "(" + style.Style.bold(style.Style.red(exploitref)) + ")"
         super(Matoi, self).__init__(moduleref=moduleref,
-                                    modulename=exploit.ref,
-                                    author=exploit.author)
+                                    modulename=exploitref,
+                                    author=type(exploit).AUTHOR)
         self.__parentname__: str = parentname
         self.__exploit__: exploitcore.Exploit = exploit
         self.__shellreg__: blueprintregister.ShellRegister = shellreg
@@ -93,7 +90,7 @@ class Matoi(engine.Engine):
         argrport: command.Argument = command.Argument(argname="rport", hasvalue=True, optional=True)
         pwnargs = [argpayload, argscripter, argtarget, arglhost, arglport, argrhost, argrport]
         cmdpwn: command.Command = command.Command(cmdname="pwn", nargslist=pwnargs, nbpositionals=0)
-        pwnhelp: str = "Description : pwn " + exploit.ref + \
+        pwnhelp: str = "Description : pwn " + self.__modulename__ + \
                        " exploit with the given parameters\n" + \
                        "Usage : pwn [option][value] \n" + \
                        "Options list : payload, lhost, lport, " + \
@@ -116,12 +113,11 @@ class Matoi(engine.Engine):
                 raise ValueError("Invalid port number " + value)
             self.setvar(varname=varname, value=value)
         elif "PAYLOAD" == varname:
-            if value in self.__exploit__.comploads:
+            if value in self.__payloadreg__.list:
                 self.setvar(varname=varname, value=value)
             else:
-                raise ValueError(value + " is not a compatible payload for " +
-                                 self.__exploit__.ref)
-        elif "PAYLOAD" == varname:
+                raise ValueError(value + " is not a compatible payload for a payload")
+        elif "SCRIPTER" == varname:
             if value in self.__scripterreg__.list:
                 self.setvar(varname=varname, value=value)
             else:
@@ -130,7 +126,7 @@ class Matoi(engine.Engine):
             if value in self.__exploit__.targets:
                 self.setvar(varname=varname, value=value)
             else:
-                raise ValueError(value + " is not a valid target for " + self.__exploit__.ref)
+                raise ValueError(value + " is not a valid target for " + self.modulename)
         else:
             self.setvar(varname=varname, value=value)
 
@@ -139,7 +135,7 @@ class Matoi(engine.Engine):
         if keyword == "PAYLOADS":
             payloadlist: typing.List[str] = self.__exploit__.comploads
             availableploads: typing.List[str] = self.__payloadreg__.list
-            print(style.Style.info(self.__exploit__.ref + " compatible payloads"))
+            print(style.Style.info(self.modulename + " compatible payloads"))
             for payloadref in payloadlist:
                 if payloadref in availableploads:
                     print(payloadref)
@@ -150,7 +146,7 @@ class Matoi(engine.Engine):
                 print(scripterref)
         elif keyword == "TARGETS":
             targetslist: typing.List[str] = self.__exploit__.targets
-            print(style.Style.info(self.__exploit__.ref + "'s targets"))
+            print(style.Style.info(self.modulename + "'s targets"))
             for targetref in targetslist:
                 print(targetref)
         else:
@@ -190,29 +186,23 @@ class Matoi(engine.Engine):
         if lportstr:
             lport = int(lportstr)
 
-        payload: str = payloadref
-        if payload is not None and payload != "":
-            payload: payloadcore.Payload = self.__payloadreg__[payload]()
+        payload: typing.Optional[payloadcore.Payload] = None
+        if payloadref is not None and payloadref != "":
+            payload = self.__payloadreg__[payloadref]()
             payload.setup(lhost, lport)
-        else:
-            payload: payloadcore.Payload = None
         exploit: exploitcore.Exploit = self.__exploit__.generate(payload, target)
-        scripter: scriptercore.Scripter = None
+        scripter: typing.Optional[scriptercore.Scripter] = None
         try:
             if scripterref != "":
                 scripter = self.__scripterreg__[scripterref]()
         except KeyError:
             print(style.Style.warning("Invalid post-exploitation script " + scripterref))
         kwargs: typing.Dict[str, typing.Any] = {"exploit": exploit, "scripter": scripter,
-                                                "rhost": rhost, "rport": rport}
-
-        if payloadref.split("/")[0] == Matoi.REVERSE:
-            kwargs["lhost"] = lhost
-            kwargs["lport"] = lport
-
+                                                "rhost": rhost, "rport": rport,
+                                                "lhost": lhost, "lport": lport}
         shellref: str = Matoi.DEFAULTSHELL
-        if exploit.comploads:
-            shellref = payload.shellname
+        if payload and payload.shellref:
+            shellref = payload.shellref
         shell: shellcore.RemoteShell = self.__shellreg__[shellref]()
 
         try:

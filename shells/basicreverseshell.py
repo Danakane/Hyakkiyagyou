@@ -8,13 +8,11 @@ from core import shellcore
 class BasicReverseShell(shellcore.AsynchronousBasicRemoteShell):
 
     AUTHOR: str = "Danakane"
-    SHELLREF: str = "BasicReverseShell"
 
-    def __init__(self)->None:
+    def __init__(self) -> None:
         shellcore.AsynchronousBasicRemoteShell.__init__(self)
-        self.customize(BasicReverseShell.AUTHOR, BasicReverseShell.SHELLREF)
 
-    def initialize(self)->None:
+    def initialize(self) -> None:
         lskt = socket.socket(self.protocol, socket.SOCK_STREAM)
         lskt.bind(self.lsockaddr)
         lskt.listen(1)
@@ -29,4 +27,3 @@ class BasicReverseShell(shellcore.AsynchronousBasicRemoteShell):
 
 
 blueprint: typing.Callable = BasicReverseShell
-name: str = BasicReverseShell.SHELLREF

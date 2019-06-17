@@ -21,5 +21,5 @@ class Hata:
 """]
 
     @staticmethod
-    def flag()->str:
+    def flag() -> str:
         return random.choice(Hata.__splashdraw__)

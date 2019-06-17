@@ -14,11 +14,11 @@ from core import exploitcore, scriptercore
 class RemoteShell:
     __metaclass__ = ABCMeta
 
-    def __init__(self)->None:
-        self.__ref__: str = ""
-        self.__author__: str = ""
-        self.__exploit__: exploitcore.Exploit = None
-        self.__scripter__: scriptercore.Scripter = None
+    AUTHOR: str = "Danakane"
+
+    def __init__(self) -> None:
+        self.__exploit__: typing.Optional[exploitcore.Exploit] = None
+        self.__scripter__: typing.Optional[scriptercore.Scripter] = None
         self.__rhost__: str = ""
         self.__rport__: int = 0
         self.__lhost__: str = ""
@@ -30,63 +30,51 @@ class RemoteShell:
         self.__protocol__: int = 0
 
     @property
-    def author(self)->str:
-        return self.__author__
-
-    @property
-    def ref(self)->str:
-        return self.__ref__
-
-    @property
-    def protocol(self)->int:
+    def protocol(self) -> int:
         return self.__protocol__
 
     @property
-    def rsockaddr(self)->typing.Tuple[typing.Any, ...]:
+    def rsockaddr(self) -> typing.Tuple[typing.Any, ...]:
         return self.__rsockaddr__
 
     @property
-    def lsockaddr(self)->typing.Tuple[typing.Any, ...]:
+    def lsockaddr(self) -> typing.Tuple[typing.Any, ...]:
         return self.__lsockaddr__
 
     @property
-    def shellskt(self)->socket.socket:
+    def shellskt(self) -> socket.socket:
         return self.__shellskt__
 
     @shellskt.setter
-    def shellskt(self, shellskt: socket.socket)->None:
+    def shellskt(self, shellskt: socket.socket) -> None:
         self.__shellskt__ = shellskt
 
     @property
-    def exploit(self)->exploitcore.Exploit:
+    def exploit(self) -> exploitcore.Exploit:
         return self.__exploit__
 
     @property
-    def scripter(self)->scriptercore.Scripter:
+    def scripter(self) -> scriptercore.Scripter:
         return self.__scripter__
 
     @property
-    def rhost(self)->str:
+    def rhost(self) -> str:
         return self.__rhost__
 
     @property
-    def lhost(self)->str:
+    def lhost(self) -> str:
         return self.__lhost__
 
     @property
-    def rport(self)->int:
+    def rport(self) -> int:
         return self.__rport__
 
     @property
-    def lport(self)->int:
+    def lport(self) -> int:
         return self.__lport__
 
-    def customize(self, author: str, ref: str):
-        self.__author__ = author
-        self.__ref__ = ref
-
     def configure(self, exploit: exploitcore.Exploit, scripter: scriptercore.Scripter,
-                  rhost: str, rport: int, lhost: str="", lport: int=0)->None:
+                  rhost: str, rport: int, lhost: str = "", lport: int = 0) -> None:
         self.__exploit__: exploitcore.Exploit = exploit
         self.__scripter__: scriptercore.Scripter = scripter
         self.__rhost__ = str(rhost)
@@ -118,27 +106,28 @@ class RemoteShell:
 
     @abstractmethod
     def run(self, exploit: exploitcore.Exploit, scripter: scriptercore.Scripter,
-            rhost: str, rport: int, lhost: str="", lport: int=0) -> None:
+            rhost: str, rport: int, lhost: str = "", lport: int = 0) -> None:
         pass
 
 
 class AsynchronousBasicRemoteShell(RemoteShell):
     __metaclass__ = ABCMeta
 
-    PDUMAXSIZE = 65535
+    AUTHOR: str = "Danakane"
+    PDUMAXSIZE: int = 65535
 
-    def __init__(self)->None:
+    def __init__(self) -> None:
         RemoteShell.__init__(self)
         self.__recvthrd__: threading.Thread = threading.Thread()
         self.__lastcmd__: str = ""
 
-    def __send__(self, cmdline: str)->None:
+    def __send__(self, cmdline: str) -> None:
         self.__shellskt__.send(utils.str2bytes(cmdline) + b"\n")
 
-    def __recv__(self, size: int)->str:
+    def __recv__(self, size: int) -> str:
         return utils.bytes2str(self.__shellskt__.recv(size))
 
-    def __recvloop__(self)->None:
+    def __recvloop__(self) -> None:
         while self.__running__:
             try:
                 res: str = self.__recv__(AsynchronousBasicRemoteShell.PDUMAXSIZE)

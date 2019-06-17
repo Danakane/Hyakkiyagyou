@@ -9,13 +9,11 @@ from core import shellcore
 class BasicBindShell(shellcore.AsynchronousBasicRemoteShell):
 
     AUTHOR: str = "Danakane"
-    SHELLREF: str = "BasicBindShell"
 
-    def __init__(self)->None:
+    def __init__(self) -> None:
         shellcore.AsynchronousBasicRemoteShell.__init__(self)
-        self.customize(BasicBindShell.AUTHOR, BasicBindShell.SHELLREF)
 
-    def initialize(self):
+    def initialize(self) -> None:
         self.exploit.run(self.rsockaddr)
         self.shellskt = socket.socket(self.protocol, socket.SOCK_STREAM)
         print(self.exploit.payload.optioninfo)
@@ -29,6 +27,4 @@ class BasicBindShell(shellcore.AsynchronousBasicRemoteShell):
             print(style.Style.error(str(err)))
             print(style.Style.failure("Failed to connect :("))
 
-
 blueprint: typing.Callable = BasicBindShell
-name: str = BasicBindShell.SHELLREF

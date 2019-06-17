@@ -213,7 +213,7 @@ class Matoi(engine.Engine):
     def completer(self, text: str, state: int) -> str:
         subtext: str = text.split(" ")[-1].lower()
         if len(text.split(" ")) > 2 and text.split(" ")[-2].lower() == "payload":
-            wordslist: typing.List[str] = self.__payloadreg__.list
+            wordslist: typing.List[str] = self.__exploit__.comploads
             retlist: typing.List[str] = text.split(" ")[:-1]
             retlist.append([x for x in wordslist if x.lower().startswith(subtext, 0) and
                             x.lower() not in text.lower().split(" ") and

@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="267bb0da-ee7e-43f2-bd06-7ea4813cce72" name="Default" comment="fix payload index">
-      <change beforePath="$PROJECT_DIR$/shells/basicbindshell.py" beforeDir="false" afterPath="$PROJECT_DIR$/shells/basicbindshell.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shells/basicreuseshell.py" beforeDir="false" afterPath="$PROJECT_DIR$/shells/basicreuseshell.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploits/linux/x64/pwnmeserver.py" beforeDir="false" afterPath="$PROJECT_DIR$/exploits/linux/x64/pwnmeserver.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,29 +28,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shinsha/matoi.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="762">
-              <caret line="128" column="33" lean-forward="true" selection-start-line="128" selection-start-column="33" selection-end-line="128" selection-end-column="33" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/exploits/linux/x64/pwnmeserver.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="100" column="12" selection-start-line="100" selection-start-column="12" selection-end-line="101" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shells/basicreuseshell.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="10" lean-forward="true" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+            <state relative-caret-position="180">
+              <caret line="159" column="19" lean-forward="true" selection-start-line="159" selection-start-column="19" selection-end-line="159" selection-end-column="19" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -60,12 +38,26 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/shells/basicbindshell.py">
+        <entry file="file://$PROJECT_DIR$/exploits/linux/x64/pwnmeserver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+            <state relative-caret-position="365">
+              <caret line="236" column="54" selection-start-line="236" selection-start-column="54" selection-end-line="236" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/exploits/linux/x64/.save/pwnmeserver.sav">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shells/basicreuseshell.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
               <folding>
-                <element signature="e#1#14#0" expanded="true" />
+                <element signature="e#0#13#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -82,7 +74,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>x86</find>
       <find>configure</find>
       <find>setblocking</find>
       <find>name</find>
@@ -112,6 +103,7 @@
       <find>forma</find>
       <find>author</find>
       <find>getoption</find>
+      <find>numalign</find>
     </findStrings>
     <replaceStrings>
       <replace>)-&gt;</replace>
@@ -161,19 +153,15 @@
         <option value="$PROJECT_DIR$/payloads/payloadindex.py" />
         <option value="$PROJECT_DIR$/shells/shellsindex.py" />
         <option value="$PROJECT_DIR$/.history/nuurihyon.hist" />
-        <option value="$PROJECT_DIR$/exploits/linux/x64/.save/pwnmeserver.sav" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/payloads/payloadsindex.py" />
-        <option value="$PROJECT_DIR$/payloads/windows/x86/tcp_bind.py" />
         <option value="$PROJECT_DIR$/../pwncore/pwncore/process.py" />
         <option value="$PROJECT_DIR$/core/payloadcore.py" />
-        <option value="$PROJECT_DIR$/../pytoolcore/pytoolcore/style.py" />
         <option value="$PROJECT_DIR$/../pytoolcore/setup.py" />
         <option value="$PROJECT_DIR$/core/factory.py" />
         <option value="$PROJECT_DIR$/core/exploitcore.py" />
         <option value="$PROJECT_DIR$/core/scriptercore.py" />
         <option value="$PROJECT_DIR$/core/shellcore.py" />
-        <option value="$PROJECT_DIR$/exploits/linux/x64/pwnmeserver.py" />
         <option value="$PROJECT_DIR$/exploits/linux/x64/nginx64chunked.py" />
         <option value="$PROJECT_DIR$/exploits/windows/x86/pcmanftpserver.py" />
         <option value="$PROJECT_DIR$/payloads/linux/netcat_reverse.py" />
@@ -189,12 +177,16 @@
         <option value="$PROJECT_DIR$/../pytoolcore/pytoolcore/engine.py" />
         <option value="$PROJECT_DIR$/shells/basicreuseshell.py" />
         <option value="$PROJECT_DIR$/shells/basicbindshell.py" />
+        <option value="$PROJECT_DIR$/payloads/windows/x86/tcp_bind.py" />
+        <option value="$PROJECT_DIR$/../pytoolcore/pytoolcore/style.py" />
+        <option value="$PROJECT_DIR$/exploits/linux/x64/.save/pwnmeserver.sav" />
+        <option value="$PROJECT_DIR$/exploits/linux/x64/pwnmeserver.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="168" />
-    <option name="y" value="41" />
+    <option name="x" value="-22" />
+    <option name="y" value="208" />
     <option name="width" value="1412" />
     <option name="height" value="686" />
   </component>
@@ -235,6 +227,14 @@
               <item name="exploits" type="462c0819:PsiDirectoryNode" />
               <item name="linux" type="462c0819:PsiDirectoryNode" />
               <item name="x64" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hyakkiyagyou" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hyakkiyagyou" type="462c0819:PsiDirectoryNode" />
+              <item name="exploits" type="462c0819:PsiDirectoryNode" />
+              <item name="linux" type="462c0819:PsiDirectoryNode" />
+              <item name="x64" type="462c0819:PsiDirectoryNode" />
+              <item name=".save" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Hyakkiyagyou" type="b2602c69:ProjectViewProjectNode" />
@@ -310,7 +310,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pytoolcore/pytoolcore/engine.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pytoolcore/pytoolcore/style.py" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Python" />
   </component>
@@ -463,7 +463,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="168" y="41" width="1412" height="686" extended-state="0" />
+    <frame x="-22" y="208" width="1412" height="686" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19078474" />
@@ -522,13 +522,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///usr/local/lib/python3.6/dist-packages/pytoolcore/engine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="225" selection-start-line="225" selection-end-line="225" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../pytoolcore/pytoolcore/exception.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -589,9 +582,6 @@
     <entry file="file://$PROJECT_DIR$/exploits/linux/x64/.save/nginx140chunked.sav">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/exploits/linux/x64/.save/pwnmeserver.sav">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -617,13 +607,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
           <caret line="4782" column="8" selection-start-line="4782" selection-start-column="8" selection-end-line="4782" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../pytoolcore/pytoolcore/style.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="32" column="27" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -681,16 +664,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="57" column="16" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/payloads/windows/x86/tcp_bind.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="32" column="78" lean-forward="true" selection-start-line="32" selection-start-column="78" selection-end-line="32" selection-end-column="78" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -805,16 +778,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shinsha/matoi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="762">
-          <caret line="128" column="33" lean-forward="true" selection-start-line="128" selection-start-column="33" selection-end-line="128" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nuurihyon.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -826,27 +789,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exploits/linux/x64/pwnmeserver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="100" column="12" selection-start-line="100" selection-start-column="12" selection-end-line="101" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shells/basicreverseshell.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="25" column="57" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shells/basicreuseshell.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="10" lean-forward="true" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -857,6 +803,60 @@
           <folding>
             <element signature="e#1#14#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shells/basicreuseshell.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3/dist-packages/tabulate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1174">
+          <caret line="1019" column="14" selection-start-line="1019" selection-start-column="6" selection-end-line="1019" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../pytoolcore/pytoolcore/style.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="78" column="67" selection-start-line="78" selection-start-column="67" selection-end-line="78" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shinsha/matoi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="159" column="19" lean-forward="true" selection-start-line="159" selection-start-column="19" selection-end-line="159" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/payloads/windows/x86/tcp_bind.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="83" selection-start-line="37" selection-start-column="83" selection-end-line="37" selection-end-column="83" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exploits/linux/x64/.save/pwnmeserver.sav">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exploits/linux/x64/pwnmeserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="236" column="54" selection-start-line="236" selection-start-column="54" selection-end-line="236" selection-end-column="54" />
         </state>
       </provider>
     </entry>

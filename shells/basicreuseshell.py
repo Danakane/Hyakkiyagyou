@@ -10,12 +10,13 @@ class BasicReuseShell(shellcore.AsynchronousBasicRemoteShell):
 
     def __init__(self) -> None:
         shellcore.AsynchronousBasicRemoteShell.__init__(self)
+        self.customize({"rhost": "", "rport": ""})
 
     def initialize(self) -> None:
-        self.shellskt = self.exploit.run(self.rsockaddr)
+        self.shellskt = self.exploit.run()
         self.__send__("whoami")
         self.__recv__(shellcore.AsynchronousBasicRemoteShell.PDUMAXSIZE)
-        print(style.Style.success("You have control! :)"))
+        print(style.Style.success("You have control! :)\n"))
 
 
 blueprint: typing.Callable = BasicReuseShell

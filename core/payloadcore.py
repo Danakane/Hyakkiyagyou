@@ -1,4 +1,6 @@
-from abc import ABCMeta, abstractmethod
+import typing
+
+from abc import ABCMeta
 
 
 class Payload:
@@ -8,46 +10,46 @@ class Payload:
     AUTHOR: str = "Danakane"
 
     def __init__(self) -> None:
-        self.__payloadbin__: bytes = b""
+        self.__raw__: bytes = b""
         self.__size__: int = 0
-        self.__optioninfo__: str = ""
         self.__shellref__: str = ""
-
-    def set(self, payloadbin: bytes, optioninfo: str = "",
-            shellref: str = "") -> None:
-        self.__payloadbin__ = payloadbin
-        if optioninfo:
-            self.__optioninfo__ = optioninfo
-        if shellref:
-            self.__shellref__ = shellref
-        self.__size__ = len(self.__payloadbin__)
-
-    def size(self) -> int:
-        return self.__size__
-
-    def binary(self) -> bytes:
-        return self.__payloadbin__
+        self.__parameters__: typing.Dict[str, str] = {}
+        self.__configure__: typing.Callable = lambda **kwargs: None
 
     @property
-    def optioninfo(self) -> str:
-        return self.__optioninfo__
+    def raw(self) -> bytes:
+        return self.__raw__
+
+    @raw.setter
+    def raw(self, value: bytes) -> None:
+        self.__raw__ = value
+        self.__size__ = len(self.__raw__)
+
+    @property
+    def size(self) -> int:
+        return self.__size__
 
     @property
     def shellref(self) -> str:
         return self.__shellref__
 
-    def setup(self, host: str = "", port: int = 0) -> None:
-        self.__payloadbin__ = self.parseparameters(host, port)
-        self.__size__ = len(self.__payloadbin__)
+    @property
+    def parameters(self) -> typing.Dict[str, str]:
+        return self.__parameters__
 
-    def customize(self, payloadbin: bytes, shellref: str, optioninfo: str = "") -> None:
-        self.__size__ = 0
-        self.__payloadbin__ = payloadbin
+    @property
+    def configure(self) -> typing.Callable:
+        return self.__configure__
+
+    @configure.setter
+    def configure(self, configfct: typing.Callable) -> None:
+        self.__configure__ = configfct
+
+    @property
+    def bindport(self) -> int:
+        return 0
+
+    def customize(self, raw: bytes, shellref: str, parameters: typing.Dict[str, str]) -> None:
+        self.raw = raw
         self.__shellref__ = shellref
-        if optioninfo:
-            self.__optioninfo__ = optioninfo
-        self.__size__ = len(self.__payloadbin__)
-
-    @abstractmethod
-    def parseparameters(self, host: str, port) -> bytes:
-        pass
+        self.__parameters__ = parameters

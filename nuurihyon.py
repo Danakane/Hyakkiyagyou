@@ -5,7 +5,7 @@ import readline
 import pathlib
 import random
 from pytoolcore import style, command, engine
-from core import blueprintregister, exploitcore
+from core import factory, exploitcore
 from shinsha import matoi, hata
 
 
@@ -14,36 +14,31 @@ class Nuurihyon(engine.Engine):
     MODNAME: str = "Nuurihyon"
     AUTHOR: str = "Danakane"
     ROOTDIR: str = str(pathlib.Path(__file__).resolve().parent)
-    HISTFILE: str = ROOTDIR + "/.history/nuurihyon.hist"
+    HISTFILE: str = str.format("{0}/.history/nuurihyon.hist", ROOTDIR)
     HISTLEN: int = 1000
 
     def __init__(self) -> None:
         super(Nuurihyon, self).__init__(moduleref=Nuurihyon.MODREF,
                                         modulename=Nuurihyon.MODNAME,
                                         author=Nuurihyon.AUTHOR)
-
         self.__histlen__: int = 0
-
-        # loading shells, exploits and payloads blueprints
-        self.__shellreg__: blueprintregister.ShellRegister = \
-            blueprintregister.ShellRegister(Nuurihyon.ROOTDIR + "/shells")
-        self.__exploitreg__: blueprintregister.ExploitRegister = \
-            blueprintregister.ExploitRegister(Nuurihyon.ROOTDIR + "/exploits")
-        self.__payloadreg__: blueprintregister.PayloadRegister = \
-            blueprintregister.PayloadRegister(Nuurihyon.ROOTDIR + "/payloads")
-        self.__scripterreg__: blueprintregister.ScripterRegister = \
-            blueprintregister.ScripterRegister(Nuurihyon.ROOTDIR + "/scripters")
-
+        # loading shells, exploits and payloads factory
+        self.__shellfactory__: factory.ShellFactory = \
+            factory.ShellFactory("{0}/shells".format(Nuurihyon.ROOTDIR))
+        self.__exploitfactory__: factory.ExploitRegister = \
+            factory.ExploitRegister("{0}/exploits".format(Nuurihyon.ROOTDIR))
+        self.__payloadfactory__: factory.PayloadFactory = \
+            factory.PayloadFactory("{0}/payloads".format(Nuurihyon.ROOTDIR))
+        self.__scripterfactory__: factory.ScripterRegister = \
+            factory.ScripterRegister("{0}/scripters".format(Nuurihyon.ROOTDIR))
         # Defining module's commands
         # load cmd
         cmdload: command.Command = command.Command(cmdname="load", nbpositionals=1,
-                                                   completionlist=list(self.__exploitreg__.list))
+                                                   completionlist=list(self.__exploitfactory__.list))
         loadhelp = "Description : load a given exploit\n" + \
                    "Usage : load {exploit}\n" + \
-                   "Note : use 'show exploits' " + \
-                   "to display all available modules"
+                   "Note : use 'show exploits' to display all available modules"
         self.addcmd(cmd=cmdload, fct=self.load, helpstr=loadhelp)
-
         # show command
         cmdshow: command.Command = command.Command(cmdname="show", nbpositionals=1,
                                                    completionlist=["commands", "name",
@@ -64,29 +59,42 @@ class Nuurihyon(engine.Engine):
 
     def show(self, keyword: str) -> None:
         keyword = keyword.upper()
+        table: typing.List[typing.List[str]] = []
         if keyword == "EXPLOITS":
-            exploitlist: typing.List[str] = self.__exploitreg__.list
-            print(style.Style.info(self.name + "'s exploits"))
+            headers: typing.List[str] = ["Exploit", "Author"]
+            exploitlist: typing.List[str] = self.__exploitfactory__.list
+            print(style.Style.info("{0}'s exploits".format(self.name)))
             for exploitref in exploitlist:
-                print(exploitref)
+                # noinspection PyUnresolvedReferences
+                table.append([exploitref, self.__exploitfactory__[exploitref].AUTHOR])
+            print(style.Style.tabulate(headers, table, True))
+            print()
         elif keyword == "PAYLOADS":
-            payloadlist: typing.List[str] = self.__payloadreg__.list
-            print(style.Style.info(self.name + "'s payloads"))
+            headers: typing.List[str] = ["Payload", "Author"]
+            payloadlist: typing.List[str] = self.__payloadfactory__.list
+            print(style.Style.info("{0}'s payloads".format(self.name)))
             for payloadref in payloadlist:
-                print(payloadref)
+                # noinspection PyUnresolvedReferences
+                table.append([payloadref, self.__payloadfactory__[payloadref].AUTHOR])
+            print(style.Style.tabulate(headers, table, True))
+            print()
         elif keyword == "SCRIPTERS":
-            scripterlist: typing.List[str] = self.__scripterreg__.list
-            print(style.Style.info(self.name + "'s post-exploitation scripts"))
+            headers: typing.List[str] = ["Scripter", "Author"]
+            scripterlist: typing.List[str] = self.__scripterfactory__.list
+            print(style.Style.info("{0}'s post-exploitation scripts".format(self.name)))
             for scripterref in scripterlist:
-                print(scripterref)
+                # noinspection PyUnresolvedReferences
+                table.append([scripterref, self.__scripterfactory__[scripterref].AUTHOR])
+            print(style.Style.tabulate(headers, table, True))
+            print()
         else:
             super(Nuurihyon, self).show(keyword)
 
     def load(self, exploitref: str) -> None:
         exploitref = exploitref.lower()
-        exploit: exploitcore.Exploit = self.__exploitreg__[exploitref]()
-        matoi.Matoi(self.ref, self.name, exploitref, exploit, self.__shellreg__,
-                    self.__payloadreg__, self.__scripterreg__).run()
+        exploit: exploitcore.Exploit = self.__exploitfactory__[exploitref]()
+        matoi.Matoi(self.ref, self.name, exploitref, exploit, self.__shellfactory__,
+                    self.__payloadfactory__, self.__scripterfactory__).run()
 
     def run(self) -> None:
         try:
@@ -106,7 +114,7 @@ class Nuurihyon(engine.Engine):
     def splash(self) -> None:
         colors: typing.List[typing.Callable] = [style.Style.red, style.Style.yellow, style.Style.darkcyan,
                                                 style.Style.cyan, style.Style.green]
-        print(hata.Hata.flag() + " by " + style.Style.bold(random.choice(colors)(self.author)), end="\n\n")
+        print("{0} by {1}".format(hata.Hata.flag(), style.Style.bold(random.choice(colors)(self.author))), end="\n\n")
 
 
 blueprint: typing.Callable = Nuurihyon

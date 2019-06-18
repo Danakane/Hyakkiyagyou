@@ -3,7 +3,7 @@ import typing
 import importlib.util
 
 
-class BlueprintRegister:
+class Factory:
 
     def __init__(self, path: str) -> None:
         self.__blueprintspath__: pathlib.Path = pathlib.Path(path).absolute()
@@ -38,10 +38,10 @@ class BlueprintRegister:
         return list(self.__blueprintsdict__.keys())
 
 
-class ShellRegister(BlueprintRegister):
+class ShellFactory(Factory):
 
     def __init__(self, relativepath: str = "./shells") -> None:
-        super(ShellRegister, self).__init__(relativepath)
+        super(ShellFactory, self).__init__(relativepath)
 
     def addshell(self, shellname: str, shellclass: typing.Callable) -> None:
         self.addblueprint(shellname, shellclass)
@@ -50,48 +50,48 @@ class ShellRegister(BlueprintRegister):
         self.removeblueprint(shellname)
 
 
-class PayloadRegister(BlueprintRegister):
+class PayloadFactory(Factory):
 
     def __init__(self, relativepath: str = "./payloads") -> None:
-        super(PayloadRegister, self).__init__(relativepath)
+        super(PayloadFactory, self).__init__(relativepath)
 
-    def addpayloadclass(self, payloadref: str, payloadclass: typing.Callable) -> None:
+    def addpayload(self, payloadref: str, payloadclass: typing.Callable) -> None:
         self.addblueprint(payloadref, payloadclass)
 
-    def removeshell(self, payloadref: str) -> None:
+    def removepayload(self, payloadref: str) -> None:
         self.removeblueprint(payloadref)
 
 
-class ExploitRegister(BlueprintRegister):
+class ExploitRegister(Factory):
 
     def __init__(self, relativepath: str = "./exploits") -> None:
         super(ExploitRegister, self).__init__(relativepath)
 
-    def addexploitclass(self, exploitref: str, exploitclass: typing.Callable) -> None:
+    def addexploit(self, exploitref: str, exploitclass: typing.Callable) -> None:
         self.addblueprint(exploitref, exploitclass)
 
-    def removeshell(self, exploitref: str) -> None:
+    def removeexploit(self, exploitref: str) -> None:
         self.removeblueprint(exploitref)
 
 
-class ScripterRegister(BlueprintRegister):
+class ScripterRegister(Factory):
 
     def __init__(self, relativepath: str = "./scripters") -> None:
         super(ScripterRegister, self).__init__(relativepath)
 
-    def addexploitclass(self, scripterref: str, scripterclass: typing.Callable) -> None:
+    def addscripter(self, scripterref: str, scripterclass: typing.Callable) -> None:
         self.addblueprint(scripterref, scripterclass)
 
-    def removeshell(self, scripterref: str) -> None:
+    def removescripter(self, scripterref: str) -> None:
         self.removeblueprint(scripterref)
 
 
-class ModuleRegister(BlueprintRegister):
+class ModuleRegister(Factory):
     def __init__(self, relativepath: str = ".") -> None:
         super(ModuleRegister, self).__init__(relativepath)
 
-    def addexploitclass(self, moduleref: str, moduleclass: typing.Callable) -> None:
+    def addmodule(self, moduleref: str, moduleclass: typing.Callable) -> None:
         self.addblueprint(moduleref, moduleclass)
 
-    def removeshell(self, moduleref: str) -> None:
+    def removemodule(self, moduleref: str) -> None:
         self.removeblueprint(moduleref)

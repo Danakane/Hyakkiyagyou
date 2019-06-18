@@ -15,12 +15,29 @@ class Scripter:
 
     def __init__(self) -> None:
         self.__skt__: typing.Optional[socket.socket] = None
+        self.__parameters__: typing.Dict[str, str] = {}
+        self.__configure__: typing.Callable = lambda **kwargs: None
+
+    @property
+    def parameters(self) -> typing.Dict[str, str]:
+        return self.__parameters__
+
+    @property
+    def configure(self) -> typing.Callable:
+        return self.__configure__
+
+    @configure.setter
+    def configure(self, configfct: typing.Callable) -> None:
+        self.__configure__ = configfct
 
     def __send__(self, cmdline: str) -> None:
         self.__skt__.send(utils.str2bytes(cmdline) + b"\n")
 
     def __recv__(self, size: int) -> str:
         return utils.bytes2str(self.__skt__.recv(size))
+
+    def customize(self, parameters: typing.Dict[str, str]):
+        self.__parameters__ = parameters
 
     def recv(self, timeout: float) -> str:
         self.__skt__.settimeout(timeout)
@@ -39,11 +56,11 @@ class Scripter:
         self.__send__(cmdline)
         return self.recv(timeout)
 
-    def postexploit(self, skt: socket.socket) -> None:
+    def execute(self, skt: socket.socket) -> None:
         self.__skt__ = skt
-        self.execute()
+        self.dojob()
         pass
 
     @abstractmethod
-    def execute(self) -> None:
+    def dojob(self) -> None:
         pass

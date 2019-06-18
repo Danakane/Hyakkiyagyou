@@ -12,7 +12,10 @@ class BasicBindShell(shellcore.AsynchronousBasicRemoteShell):
 
     def __init__(self) -> None:
         shellcore.AsynchronousBasicRemoteShell.__init__(self)
-        self.customize({"rhost": "", "rport": ""})
+        self.customize({
+            "rhost": "The vulnerable remote host",
+            "rport": "The remote host port to target"
+        })
 
     def initialize(self) -> None:
         self.exploit.run()
